@@ -1,0 +1,435 @@
+[
+ {
+  "title": "About Us",
+  "links": [
+   {
+    "label": "About Us",
+    "url": "AboutUs.aspx"
+   }
+  ]
+ },
+ {
+  "title": "Certificate Services",
+  "links": [
+   {
+    "label": "Income certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Non-Creamylayer Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Religious Minority Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Socially & Educationally Backward Class Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Non-Creamylayer Certificate For Central Goverment",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Senior Citizen Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Religious Minority Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "SC/ST Caste Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Temporary Residence Certificate",
+    "url": "../Services/JansevaServices.aspx"
+   }
+  ]
+ },
+ {
+  "title": "Tourism",
+  "links": [
+   {
+    "label": "Gujarat Tourism",
+    "url": "https://www.gujarattourism.com/"
+   },
+   {
+    "label": "Places to visit",
+    "url": "https://www.gujarattourism.com/gujarat-cine-hub.html"
+   },
+   {
+    "label": "Key Attractions",
+    "url": "http://www.cottage.gujarat.gov.in/eng/?page_id=487"
+   },
+   {
+    "label": "GIR - Online Permit Booking",
+    "url": "https://girlion.gujarat.gov.in/"
+   },
+   {
+    "label": "State Tourism Online Booking",
+    "url": "http://booking.gujarattourism.com/"
+   }
+  ]
+ },
+ {
+  "title": "Employment",
+  "links": [
+   {
+    "label": "Government Jobs",
+    "url": "https://ojas.gujarat.gov.in/"
+   },
+   {
+    "label": "Industry Interface Cell",
+    "url": "https://ojas.gujarat.gov.in/"
+   }
+  ]
+ },
+ {
+  "title": "E-Citizen",
+  "links": [
+   {
+    "label": "News & Updates",
+    "url": "LatestUpdate.aspx?Tag=N"
+   },
+   {
+    "label": "Circular / Notification",
+    "url": "LatestUpdate.aspx?Tag=C"
+   },
+   {
+    "label": "Government Scheme / Service",
+    "url": "https://mariyojana.gujarat.gov.in/"
+   },
+   {
+    "label": "Government Tenders",
+    "url": "https://gil.gujarat.gov.in/Tenders"
+   }
+  ]
+ },
+ {
+  "title": "Services",
+  "links": [
+   {
+    "label": "Citizen Services",
+    "url": "../Services/CitizenServices.aspx"
+   },
+   {
+    "label": "Digital SevaSetu Services",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Janseva Services",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Scholarship Services",
+    "url": "../Services/JansevaServices.aspx"
+   },
+   {
+    "label": "Linked Services",
+    "url": "../Services/NesdaServices.aspx"
+   }
+  ]
+ },
+ {
+  "title": "Panchayat Certificate Services",
+  "links": [
+   {
+    "label": "Economically Backward Certificate",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Widow Certificate",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Income certificate",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Non-Creamylayer Certificate",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Non-Creamylayer Certificate For Central Goverment",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Temporary Residence Certificate",
+    "url": "../Services/DSSServices.aspx"
+   },
+   {
+    "label": "Senior Citizen Certificate",
+    "url": "../Services/DSSServices.aspx"
+   }
+  ]
+ },
+ {
+  "title": "Other Services",
+  "links": [
+   {
+    "label": "Digital locker",
+    "url": "https://digilocker.gov.in/"
+   },
+   {
+    "label": "Latest GSEB Exam Result",
+    "url": "http://www.gseb.org/"
+   },
+   {
+    "label": "gARVI-Registered Document&Jantri Rates",
+    "url": "http://garvi.gujarat.gov.in/"
+   },
+   {
+    "label": "Election ID",
+    "url": "https://voters.eci.gov.in/"
+   },
+   {
+    "label": "Aadhar Card",
+    "url": "https://uidai.gov.in/"
+   },
+   {
+    "label": "PAN Card",
+    "url": "https://incometaxindia.gov.in/Pages/tax-services/apply-for-pan.aspx"
+   },
+   {
+    "label": "Vehicle Registration Details",
+    "url": "https://sarathi.parivahan.gov.in/"
+   },
+   {
+    "label": "AnyRoR",
+    "url": "https://anyror.gujarat.gov.in/"
+   }
+  ]
+ },
+ {
+  "title": "Policy",
+  "links": [
+   {
+    "label": "Policy",
+    "url": "https://gujaratindia.gov.in/PolicyDetails"
+   }
+  ]
+ },
+ {
+  "title": "Business",
+  "links": [
+   {
+    "label": "Business",
+    "url": "https://gujaratindia.gov.in/Home/GujaratTheInvestmentDestination"
+   }
+  ]
+ },
+ {
+  "title": "Sugam Digital Gujarat Services",
+  "links": [
+   {
+    "label": "SEBC Certificate (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "SC Caste Certificate (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Eligibility Certificate for Economically Weaker Sections (With Income) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Income Certificate (Panchayat) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "SEBC Certificate (Panchayat) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Eligibility Certificate for Economically Weaker Sections (With Income) - (Panchayat) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Non-Creamy Layer Certificate For Gujarat Government (Panchayat) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Nomadic Tribes and Denotified Tribes Caste Certificate (Rural) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Unreserved Caste Certificate (Rural) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Unreserved Caste Certificate (Urban) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Nomadic Tribes and Denotified Tribes Caste Certificate (Urban) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "ST Caste Certificate (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "SC Caste Certificate (Panchayat) (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Application for New Ration Card (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Non-Creamy Layer Certificate For Gujarat Government (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Addition of Name in Ration Card (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Income Certificate (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Removal of Name from Ration Card (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Application for Separate Ration Card (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Change in Ration Card (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Application for Duplicate Ration Card (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Application For Getting Copy (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Other Ready Affidavit (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Non-Creamy layer Certificate For Central Government (Sugam)",
+    "url": "../Services/SugamDGAbhiyanServices.aspx"
+   },
+   {
+    "label": "Download User Manual",
+    "url": "../Download/User_Manual_on_CSP_v1.1.pdf"
+   },
+   {
+    "label": "Download User Manual",
+    "url": "../Download/GUser_Manual_on_CSP_v1.1.pdf"
+   },
+   {
+    "label": "Sugam User Manual",
+    "url": "SugamUserManual.aspx"
+   }
+  ]
+ },
+ {
+  "title": "Quick Links",
+  "links": [
+   {
+    "label": "Gujarat At A Glance",
+    "url": "https://gujaratindia.gov.in/Home/GujaratAtAGlance"
+   },
+   {
+    "label": "Gujarat History",
+    "url": "https://gujaratindia.gov.in/Index"
+   },
+   {
+    "label": "Getting to Gujarat",
+    "url": "https://gujaratindia.gov.in/Home/Getting-to-Gujarat"
+   },
+   {
+    "label": "FAQ",
+    "url": "FAQ.aspx"
+   },
+   {
+    "label": "Site Map",
+    "url": "Sitemap.aspx"
+   },
+   {
+    "label": "Feedback",
+    "url": "Feedback.aspx"
+   },
+   {
+    "label": "Write to Grievance (Swagat)",
+    "url": "https://swagat.gujarat.gov.in/"
+   },
+   {
+    "label": "Collectors",
+    "url": "https://revenuedepartment.gujarat.gov.in/collectorate"
+   },
+   {
+    "label": "Gujarat Government Achievements",
+    "url": "https://gujaratindia.gov.in/index"
+   }
+  ]
+ },
+ {
+  "title": "Important Links",
+  "links": [
+   {
+    "label": "Terms & Condition",
+    "url": "TermsCondition.aspx"
+   },
+   {
+    "label": "Privacy Policy",
+    "url": "PrivacyPolicy.aspx"
+   },
+   {
+    "label": "Copyright Policy",
+    "url": "CopyrightPolicy.aspx"
+   },
+   {
+    "label": "Disclaimer",
+    "url": "Disclaimer.aspx"
+   },
+   {
+    "label": "Help",
+    "url": "HelpDesk.aspx"
+   },
+   {
+    "label": "Hyperlinking Policy",
+    "url": "HyperlinkPolicy.aspx"
+   },
+   {
+    "label": "Accessibility Statement",
+    "url": "AccessibilityStatement.aspx"
+   },
+   {
+    "label": "Videos",
+    "url": "Videos.aspx"
+   },
+   {
+    "label": "Feedback Response",
+    "url": "FeedbackDashboard.aspx"
+   },
+   {
+    "label": "Promotional Campaign",
+    "url": "../Campaign.aspx"
+   },
+   {
+    "label": "Holiday List",
+    "url": "../Download/GovernmentHolidays.pdf"
+   },
+   {
+    "label": "Digital Gujarat",
+    "url": "../HomePage.aspx"
+   },
+   {
+    "label": "National Informatics Centre",
+    "url": "https://guj.nic.in"
+   }
+  ]
+ }
+]

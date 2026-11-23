@@ -1,0 +1,74 @@
+/* ===== Accessibility panel + user-selectable display modes + light (data-saver) mode =====
+   Modes are classes on <html>, set by A11yService: a11y-contrast, a11y-gray, a11y-links, a11y-dyslexia,
+   a11y-spacing, a11y-focus, a11y-nomotion, lite. */
+
+/* ---- baseline: every interactive element has a visible keyboard focus indicator (WCAG 2.4.7) ---- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--brand); outline-offset: 3px; border-radius: inherit;
+}
+.skip-link:focus-visible { outline-color: #fff; }
+
+/* ---- panel button + popover (top bar) ---- */
+.a11y-pick { position: relative; display: inline-flex; }
+.ap-btn {
+  position: relative; width: 36px; height: 36px; aspect-ratio: 1; flex: none; padding: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1); color: #fff; cursor: pointer; display: grid; place-items: center;
+  transition: background 0.25s var(--ease-out), transform 0.2s;
+  &:hover, &[aria-expanded='true'] { background: var(--brand); border-color: var(--brand); transform: scale(1.06); }
+  &.on::after { content: ''; position: absolute; top: 1px; right: 1px; width: 9px; height: 9px; border-radius: 50%; background: #22c55e; border: 2px solid var(--ink); }
+}
+@media (max-width: 420px) { .topbar .ap-btn { width: 28px; height: 28px; svg { width: 15px; height: 15px; } } }
+
+/* ---- Underline links ---- */
+html.a11y-links a:not(.ax-fab):not(.skip-link):not(.ax-drawer a) { text-decoration: underline !important; text-underline-offset: 3px; text-decoration-thickness: 2px; background: rgba(255, 224, 80, 0.45); color: #000 !important; border-radius: 3px; box-shadow: 0 0 0 2px rgba(255, 224, 80, 0.45); }
+
+/* ---- Readable font (icon fonts excluded) ---- */
+html.a11y-dyslexia body, html.a11y-dyslexia body *:not(.pi):not([class*='pi-']):not(svg):not(svg *):not(.ax-drawer *) {
+  font-family: Verdana, Tahoma, 'Segoe UI', Arial, sans-serif !important; letter-spacing: 0.02em;
+}
+
+/* ---- Strong focus ring ---- */
+html.a11y-focus :focus-visible { outline: 4px solid #ffbf00 !important; outline-offset: 3px !important; box-shadow: 0 0 0 8px #000 !important; }
+
+/* ---- Grayscale (on the root so fixed elements keep working) ---- */
+html.a11y-gray { filter: grayscale(1); }
+
+/* ---- Reduce motion: no animation, transition or autoplay ---- */
+html.a11y-nomotion, html.lite { scroll-behavior: auto !important; }
+html.a11y-nomotion *, html.a11y-nomotion *::before, html.a11y-nomotion *::after,
+html.lite *, html.lite *::before, html.lite *::after {
+  animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important;
+}
+html.a11y-nomotion .reveal, html.lite .reveal { opacity: 1 !important; transform: none !important; }
+html.a11y-nomotion .partners-track, html.lite .partners-track, html.a11y-nomotion .ticker-move, html.lite .ticker-move { animation: none !important; transform: none !important; }
+html.a11y-nomotion .partners-marquee, html.lite .partners-marquee { overflow-x: auto; }
+html.a11y-nomotion .hv-orbit, html.lite .hv-orbit, html.a11y-nomotion .hero-mesh, html.lite .hero-mesh, html.a11y-nomotion .hv-frame, html.lite .hv-frame, html.a11y-nomotion .glass, html.lite .glass { animation: none !important; }
+
+/* ---- Light mode: fewer expensive effects, less data/CPU on slow connections ---- */
+html.lite {
+  .hero-mesh, .hero-grid, .hv-orbit, .scroll-progress, .blob { display: none !important; }
+  * { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  .hero, .stats, .promo, .cta-band { background-image: none !important; }
+  .hero { background: var(--dg-alt) !important; }
+  .stats, .promo, .cta-band { background: var(--ink) !important; }
+  .service-card, .svc-card, .trend-card, .video-card, .quick-card, .exp-card, .glass { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important; filter: none !important; }
+}
+
+/* ---- High contrast: black / white / yellow, strong borders ---- */
+html.a11y-contrast {
+  --dg-bg: #000; --dg-alt: #0b0b0b; --dg-card: #000; --dg-text: #fff; --dg-muted: #f0f0f0; --dg-border: #fff; --ink: #000; --dg-shadow: none;
+  --brand: #ffd400 !important; --brand-rgb: 255, 212, 0 !important; --brand-2: #ffe45c !important; --brand-3: #fff1a8 !important;
+  body { background: #000; color: #fff; }
+  :is(h1, h2, h3, h4, h5, h6, dt, dd, strong, b, label, legend, th, td, small, p, li, span:not(.pi)):not(.ax-drawer *) { color: #fff; }
+  .accent, .grad { color: #ffd400 !important; -webkit-text-fill-color: #ffd400 !important; background: none !important; }
+  :is(a:not([class]), .p-accordion-content a):not(.ax-drawer *) { color: #ffd400; text-decoration: underline; }
+  .hero, .stats, .promo, .cta-band, .site-footer, .topbar, .site-header, .section.alt, .quick-card, .holiday { background: #000 !important; background-image: none !important; }
+  .stats, .promo, .cta-band, .site-footer, .topbar, .site-header, .quick-card { border: 2px solid #fff; }
+  .service-card, .svc-card, .trend-card, .video-card, .manual, .promo-card, .exp-card, .glass, .p-card, .p-accordion-panel, .news li, .p-tabpanels, .p-select, .p-inputtext,
+  .partners-marquee a, .pal-chips button, .trend-chips button, input, textarea, select { background: #000 !important; border: 2px solid #fff !important; box-shadow: none !important; color: #fff; }
+  .p-button:not(.p-button-outlined):not(.p-button-text), a[pButton]:not(.on-dark), .exp-nav:hover, .tp-btn:hover { background: #ffd400 !important; border-color: #ffd400 !important; color: #000 !important; * { color: #000 !important; } }
+  .p-button.p-button-outlined, .on-dark { background: transparent !important; border: 2px solid #fff !important; color: #fff !important; }
+  .exp-title, .exp-content * { color: #fff !important; }
+  .scroll-progress { background: #ffd400 !important; }
+  ::selection { background: #ffd400; color: #000; }
+}

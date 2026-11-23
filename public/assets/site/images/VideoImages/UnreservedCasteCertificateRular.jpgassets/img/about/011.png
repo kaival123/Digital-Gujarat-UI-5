@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Digital Gujarat" /><meta name="keywords" content="services, Citizen Services, Digital Seva Setu Services, Scholarship  Services" /><meta name="author" content="Digital Gujarat" /><title>
+	Digital Gujarat
+</title><link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 211px;
+        }
+    </style>
+    <script>
+
+        $("#upload").fileinput({
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            showUpload: 'false'
+        });
+
+    </script>
+
+   
+
+    <script src='/assets/js/jquery-3.7.1.min.js'></script>
+
+    <link href="/bundles/css?v=7z-FZu08eCEi0zrGHAmYLFmE4ESLifFLUm2wWz4NGow1" rel="stylesheet"/>
+
+
+
+    <script type="text/javascript">
+        function goToSearchPage() {
+            var myUrl = '/AdvanceSearch.aspx';
+            /* console.log("Redirecting to:", myUrl);*/
+            window.location.href = myUrl;
+        }
+    </script>
+
+</head>
+<body class="home-3">
+    <form name="aspnetForm" method="post" action="./ErrorPage.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzNDk2NDEwODAPZBYCZg8PFgIeC2hvbGlkYXlsaXN0MpsMAAEAAAD/////AQAAAAAAAAAEAQAAAOEBU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuRGljdGlvbmFyeWAyW1tTeXN0ZW0uSW50MzIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV0sW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dBAAAAAdWZXJzaW9uCENvbXBhcmVyCEhhc2hTaXplDUtleVZhbHVlUGFpcnMAAwADCJEBU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuR2VuZXJpY0VxdWFsaXR5Q29tcGFyZXJgMVtbU3lzdGVtLkludDMyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQjlAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLktleVZhbHVlUGFpcmAyW1tTeXN0ZW0uSW50MzIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV0sW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dW10JAAAACQIAAAARAAAACQMAAAAEAgAAAJEBU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuR2VuZXJpY0VxdWFsaXR5Q29tcGFyZXJgMVtbU3lzdGVtLkludDMyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQAAAAAHAwAAAAABAAAACQAAAAPjAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLktleVZhbHVlUGFpcmAyW1tTeXN0ZW0uSW50MzIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV0sW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dBPz////jAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLktleVZhbHVlUGFpcmAyW1tTeXN0ZW0uSW50MzIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV0sW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAgAAAANrZXkFdmFsdWUAAQgCAAAABgUAAAAZTWFoYXRtYSBHYW5kaGkncyBCaXJ0aGRheQH6/////P///wQAAAAKAfn////8////CgAAAAoB+P////z///8LAAAACgH3/////P///xIAAAAKAfb////8////FAAAAAYLAAAAGER1c3NoZXJhIChWaWpheWEgRGFzaG1pKQH0/////P///xgAAAAKAfP////8////GQAAAAoB8v////z///8fAAAABg8AAAAjU2FyZGFyIFZhbGxhYmhiaGFpIFBhdGVsJ3MgQmlydGhkYXkLZBYCAgMPZBYGAgMPEGRkFgFmZAIUD2QWAgICDxYCHgRocmVmBSFodHRwczovL3d3dy5kaWdpdGFsZ3VqYXJhdC5nb3YuaW5kAhYPZBYCZg9kFgYCIA8WAh4EVGV4dAVuV2Vic2l0ZSBpcyBiZXN0IHZpZXdlZCB3aXRoIDEyODAgw5cgODAwIHJlc29sdXRpb24gaW4gRmlyZWZveCA2NC4wIC8gQ2hyb21lIDcyLjAgYWJvdmUgfCBTaXRlDQpWZXJzaW9uIDogNS4xLjZkAiUPFgIfAgUTMjMtMDMtMjAyNiAxMjowMCBQTWQCJw8WAh8CBQk0ODY3MjIzMzZkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRZjdGwwMCRCdG5TZWFyY2hLZXl3b3Jk05CdUK/0xv3Ewq3IN/BMJ67u7DodNDiI3wPDljv/lBg=" />
+
+
+<script src="/ScriptResource.axd?d=Ab4jljH-eXFTwy1dpoZuU79817MRoq6gE1kIDcWtOeOI6Qh3xgWtShywpKQzimegDj7796tz9JVe4mLXS_WnBP16GVOR74HAUv0BtT-6rv6gsRYl5ge7U6Rt6aR3UvWUiJrSgwO76WLFMVPl4OWMUht4IvSsmDYW54bkxEOaQ6c1&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5ED29197" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdADX/DDZ+4kXtEEw4fbAx6OyXRkBGysrMqV6XrKmKAV0J4o7Ulzqc0UKyEBO7aGw3dA3q4PIHPM5BQWYh0Y13Lq1RklUCLMN1TBbo2XZcu5woGYFBZYDVNXrnB/9WmjDFKj7gPEXEXKSCdAzxUMJUzYZKurfEpIHwTlpobgf6JGZLNr3HiWiWzqkVqP+5/gwczbesa477KYpTYUhLDKpPLNhyY6QyLHHu+GYTA29RodUmF6F1loSECaRvle3g2rhNqNGkpGHxmBU1xbAuLjbSz3aINpYmua3FYkBEwn8VEFHXcuClin7sBIPzxtaqIG85HzoYuDMFsdWujOJXwjryVTZuZ9MJhlkKm01gChqeBpUVke0l5acJPDnwhwirbU/YVyz5RFG//fjKLhpZfPiL7orocgGe2UQOqI3X8pXWuFJzcY2J05rt8pMBTe8A4kY/m+pDtSZZB3rNtEEjEXZwnznEssUKiIOr2BSgF2QWnQxvoq1PT4NFzRrl1aSwx0zBUr6Lsqni182VgX5bq8YS1G+OSEk4c+SO5i3VSsp3KeJc/oCnuOqCMeBIHZApVjQqBD1zxVSq7HUwd2tn320hVABzNcAyhBpnxNPJogztgvHgV7cjsvvzVfNMnKWZC+jFuNBZVfghICApKu/O5m7oAQDULw8UXoAZi6zW15iyDUXUhLsiNECRdRk9TXW6uQq6wBH9FwYO09wdqdsCmKQG/LxOzWLhKvvIDf8fNfkGvoaBnpiAFMxvNB2zxa5KY+PYMQHS9ec7eIz7neYfzvLYZF9TcXbl1nEQZ7VHOjP4m+hEVRXz0/LZ2rA62FLSgXXeL41ESsl8NvMVueunZJkCkbMwbKtalekShV2zW5MQh6zJX9lsMbXi6oduR9seC3SklOEKhxp0lIMUPQYoa3ZwPM7HX1ZnUo1HcrHUyGpdzqKh+/NPZI3+8UCXcCEsx0ocJtuTsttRdA27XWr0WKI5gygzfkDDQ6wnqoq1z43gwfTYBc2aHAg8KHcxzUs7xugjrIUeYQ3qdt9xewO7Y+hUNFFgLI8JuCw74TlmCSsXL/49QAkIyiWTAd36nqvwO4oveswxq3b2lIbFfzdoDeFa5AxoOneEg2oR/zIMxuoakQsP8tyYBK0/rVPBZm6OAB6muvdUHpacGEfKTE1N3jEYzubF" />
+        <div>
+            <div class="preloader">
+                <div class="loader-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!--Full width header Start-->
+            <div class="full-width-header">
+                <!-- Toolbar Start -->
+                <div class="topheaderbar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="topcontent">
+                                    
+                                    <li><a href="#skipdata" title="skip to main Content" id="Skiptomain"><i
+                                        class="fa fa-step-forward"></i>
+                                        Skip to main Content
+                                    </a></li>
+                                    
+                                    <li class="topside">
+                                        <span><a href="HomePage.aspx" title="Home">
+                                            <i class="fa fa-home"></i></a></span>
+                                        <span><a href="LinkPages/Feedback.aspx" title="Feedback"><i class="fa fa-envelope"></i></a></span>
+                                        <span><a href="LinkPages/HelpDesk.aspx" title="Contact"><i class="fa fa-phone"></i></a></span>
+                                        <span><a href="LinkPages/Sitemap.aspx" title="Site Map"><i class="fa fa-sitemap"></i></a></span>
+                                    </li>
+                                    <li>
+                                        <div class="header-search">
+                                            <input name="ctl00$txtSearchKeyword" type="text" id="ctl00_txtSearchKeyword" class="search-input" title="Search" placeholder="Search.." autocomplete="off" />
+                                            <input type="image" name="ctl00$BtnSearchKeyword" id="ctl00_BtnSearchKeyword" class="search-btn" src="Images/search-icon.png" alt="SearchButton" border="0" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="rs-toolbar-right">
+                                            <div class="toolbar-share-icon">
+                                                <div class="side-nav">
+
+                                                    <select name="ctl00$ddlLang" id="ctl00_ddlLang" class="dropdown nav-flag-dropdown">
+	<option selected="selected" value="en-GB">English</option>
+	<option value="gu-IN">Gujarati</option>
+
+</select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Toolbar End -->
+            </div>
+            <!--Full width header End-->
+
+            <!-- header area -->
+            <header class="header">
+                <div class="main-navigation">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container position-relative">
+                            <a class="navbar-brand" href="HomePage.aspx">
+                                <img src="assets/img/logo/emblem-of-india.png" alt="emblem-of-india">
+                                <img src="assets/img/logo/logodig.png" alt="logo">
+                            </a>
+                            <div class="mobile-menu-right">
+                                
+                                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                                aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header">
+                                    <a href="index.html" class="offcanvas-brand" id="offcanvasNavbarLabel">
+                                        
+                                        <img src="https://www.digitalgujarat.gov.in/assets/img/logo/logodig.png" alt="logo">
+                                    </a>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                                        <i
+                                            class="far fa-xmark"></i>
+                                    </button>
+                                </div>
+                                <div class="offcanvas-body gap-xl-4">
+                                    <ul class="navbar-nav justify-content-end flex-grow-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="HomePage.aspx">
+                                                Home
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="LinkPages/AboutUs.aspx">
+                                                About Us
+                                            </a>
+                                        </li>
+
+                                        <li id="ctl00_liSugamDG" class="nav-item"><a class="nav-link" href="Services/SugamDGAbhiyanServices.aspx">
+                                            Sugam Digital Gujarat
+                                        </a></li>
+
+                                        
+
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                                Services
+                                            </a>
+                                            <ul class="dropdown-menu fade-down">
+                                                <li><a class="dropdown-item" href="Services/CitizenServices.aspx">
+                                                    Citizen Services
+                                                </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="Services/DSSServices.aspx">
+                                                    Digital SevaSetu Services
+                                                </a></li>
+                                                <li><a class="dropdown-item" href="Services/JansevaServices.aspx">
+                                                    Janseva Services
+                                                </a></li>
+                                                <li><a class="dropdown-item" href="https://gssp.gujarat.gov.in/" target="_blank">
+                                                    Scholarship Services
+                                                </a></li>
+                                                <li><a class="dropdown-item" href="Services/NesdaServices.aspx">
+                                                    Linked Services
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" target="_blank" href="https://gujaratindia.gov.in/PolicyDetails">
+                                                Policy
+                                            </a>
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://gujaratindia.gov.in/Home/GujaratTheInvestmentDestination">
+                                            Business
+                                        </a></li>
+                                        
+                                        <li class="nav-item"><a class="nav-link" href="LinkPages/LatestUpdate.aspx">
+                                            Latest Update
+                                        </a></li>
+
+                                    </ul>
+
+                                    
+                                    <!-- nav-right -->
+                                    <div class="nav-right">
+                                        
+                                        <div class="nav-btn">
+                                            <ul>
+                                                <li class="nav-item dropdown ">
+                                                    <a onclick="return false;" id="ctl00_LinkButton1" class="theme-btn" data-bs-toggle="dropdown" href="javascript:__doPostBack(&#39;ctl00$LinkButton1&#39;,&#39;&#39;)"><span id="ctl00_lblLogin">Login / Register</span></a>
+                                                    <ul class="dropdown-menu fade-down">
+                                                        <li>
+                                                            <a id="ctl00_lnkcitizenlogin" class="dropdown-item" href="javascript:__doPostBack(&#39;ctl00$lnkcitizenlogin&#39;,&#39;&#39;)">Citizen Login</a>
+                                                        </li>
+                                                        <li>
+                                                            <a id="ctl00_lnkOfficeLogin" class="dropdown-item" href="javascript:__doPostBack(&#39;ctl00$lnkOfficeLogin&#39;,&#39;&#39;)">Office Login</a></li>
+                                                        <li>
+                                                            <a id="ctl00_lnkSchoolLogin" class="dropdown-item" href="javascript:__doPostBack(&#39;ctl00$lnkSchoolLogin&#39;,&#39;&#39;)">School / Institution Login</a></li>
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+            </header>
+            <!-- header area end -->
+
+
+            
+      <div id="wrapper">
+
+        <section id="formMain">
+            <!--Registration page start-->
+
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="form uploadDoc">
+                            <h2>Message</h2>
+
+                            <p>Coming Soon ............</p>
+                            <p>This Page is under construction</p>
+                            <hr />
+                            <div class="form-horizontal">
+                             
+                                   <p>  Go back to <a href="https://www.digitalgujarat.gov.in" id="ctl00_MainContent_ahref">Home page</a> and try with your User credentials.</p>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!--Registration page end-->
+
+    </div>    
+
+
+
+
+            <!-- footer area -->
+            
+            <div id="ctl00_upfooter">
+	
+                    <footer class="footer-area">
+                        <div class="footer-shape">
+                            <img src="assets/img/shape/01.png" alt="">
+                        </div>
+                        <div class="footer-widget">
+                            <div class="container">
+                                <div class="footer-widget-wrap pt-100 pb-80">
+                                    <div class="row g-4">
+                                        <div class="col-lg-3">
+                                            <div class="footer-widget-box about-us">
+                                                <a href="HomePage.aspx" class="footer-logo">
+                                                    <img src="assets/img/logo/logodig.png" alt="logo">
+                                                </a>
+                                                <ul class="footer-social">
+                                                    <li><a href="https://www.facebook.com/sugamdigitalgujarat" target="_blank" aria-label="link" aria-label="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="#" target="_blank" aria-label="link" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+                                                    <li><a href="https://www.instagram.com/sugamdigitalgujarat" target="_blank" aria-label="link" aria-label="instagram"><i class="fab fa-instagram"></i></a></li>
+                                                    <li><a target="_blank" href="https://www.youtube.com/@digitalgujarat-dit" aria-label="link" aria-label="youtube"><i class="fab fa-youtube"></i></a></li>
+                                                </ul>
+                                                <ul class="footer-contact mt-4">
+                                                    <li>
+                                                        <div class="icon">
+                                                            <i class="far fa-download"></i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <a target="_blank" href="Download/User_Manual_on_CSP_v1.1.pdf">
+                                                                <h6>
+                                                                    Download User Manual
+                                                                </h6>
+                                                            </a>
+
+                                                            English
+
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="icon">
+                                                            <i class="far fa-download"></i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <a target="_blank" href="Download/GUser_Manual_on_CSP_v1.1.pdf">
+                                                                <h6>
+                                                                    Download User Manual
+                                                                </h6>
+                                                            </a>
+
+                                                            Gujarati
+                                                        </div>
+                                                    </li>
+
+                                                    
+
+                                                    <li>
+                                                        <div class="icon">
+                                                            <i class="far fa-download"></i>
+                                                        </div>
+                                                        <div class="content">
+                                                            <h6>
+                                                                <a href="LinkPages/SugamUserManual.aspx"
+                                                                    style="text-decoration: none; color: inherit;">
+
+                                                                    Sugam User Manual
+
+                                                                </a>
+                                                            </h6>
+                                                        </div>
+                                                    </li>
+
+                                                    
+                                                </ul>
+                                                <a href="https://dst.gujarat.gov.in/" target="_blank" class="ml-lg-4 pt-4">
+                                                    <img id="ctl00_imgDSTlogo" class="img-fluid" src="images/logos/DSTlogo.png" alt="DST Logo" border="0" />
+                                                    </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-lg-3">
+                                            <div class="footer-widget-box list">
+                                                <h4 class="footer-widget-title">
+                                                    Quick Links
+                                                </h4>
+                                                <ul class="footer-list">
+
+                                                    
+                                                    <li><a href="https://gujaratindia.gov.in/Home/GujaratAtAGlance" target="_blank" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Gujarat At A Glance
+                                                    </a></li>
+                                                    <li><a href="https://gujaratindia.gov.in/Index" target="_blank" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Gujarat History
+
+                                                    </a></li>
+                                                    <li><a href="https://gujaratindia.gov.in/Home/Getting-to-Gujarat" target="_blank" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Getting to Gujarat
+                                                    </a></li>
+                                                    
+                                                    <li><a href="LinkPages/FAQ.aspx"><i class="far fa-angle-double-right"></i>
+                                                        FAQ
+                                                    </a></li>
+                                                    <li><a href="LinkPages/Sitemap.aspx" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Site Map
+                                                    </a></li>
+                                                    <li><a href="LinkPages/Feedback.aspx" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Feedback
+                                                    </a></li>
+                                                    
+                                                    <li><a href="https://swagat.gujarat.gov.in/" target="_blank" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Write to Grievance (Swagat)
+                                                    </a></li>
+                                                    
+                                                    <li><a href="https://revenuedepartment.gujarat.gov.in/collectorate" target="_blank" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Collectors
+                                                    </a></li>
+                                                    <li><a href="https://gujaratindia.gov.in/index" target="_blank" aria-label="link"><i class="far fa-angle-double-right"></i>
+                                                        Gujarat Government Achievements
+                                                    </a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-lg-3">
+                                            <div class="footer-widget-box list">
+                                                <h4 class="footer-widget-title">
+                                                    Important Links
+                                                </h4>
+                                                <ul class="footer-list">
+                                                    <li><a href="LinkPages/TermsCondition.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Terms & Condition
+                                                    </a>
+                                                    </li>
+                                                    <li><a href="LinkPages/PrivacyPolicy.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Privacy Policy
+                                                    </a>
+                                                    </li>
+                                                    <li><a href="LinkPages/CopyrightPolicy.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Copyright Policy
+                                                    </a>
+                                                    </li>
+                                                    <li><a href="LinkPages/Disclaimer.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Disclaimer
+                                                    </a></li>
+                                                    <li><a href="LinkPages/HelpDesk.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Help
+                                                    </a></li>
+                                                    <li><a href="LinkPages/HyperlinkPolicy.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Hyperlinking Policy
+                                                    </a></li>
+                                                    <li><a href="LinkPages/AccessibilityStatement.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Accessibility Statement
+                                                    </a></li>
+                                                    <li><a href="LinkPages/Videos.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Videos
+                                                    </a>
+                                                    </li>
+                                                    <li><a href="LinkPages/FeedbackDashboard.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Feedback Response
+                                                    </a>
+                                                    </li>
+                                                    <li><a href="Campaign.aspx"><i class="far fa-angle-double-right"></i>
+                                                        Promotional Campaign
+                                                    </a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+
+                                            <div class="footer-widget-box">
+                                                <div class="wrapper">
+                                                    <table id="ctl00_holidayCalendar" title=" " class="table-calendar" cellspacing="0" cellpadding="2" rules="all" role="presentation" title="Calendar" border="1" width="90%">
+		<tr><td colspan="7" bgcolor="WhiteSmoke"><table class="CalendarTitleStyle" cellspacing="0" border="0" width="100%">
+			<tr><td width="15%"><a href="javascript:__doPostBack('ctl00$holidayCalendar','V9740')" style="color:Black" title="Go to the previous month">&lt;</a></td><td align="center" width="70%">October 2026</td><td align="right" width="15%"><a href="javascript:__doPostBack('ctl00$holidayCalendar','V9801')" style="color:Black" title="Go to the next month">&gt;</a></td></tr>
+		</table></td></tr><tr><th align="center" abbr="Sunday" scope="col">Sun</th><th align="center" abbr="Monday" scope="col">Mon</th><th align="center" abbr="Tuesday" scope="col">Tue</th><th align="center" abbr="Wednesday" scope="col">Wed</th><th align="center" abbr="Thursday" scope="col">Thu</th><th align="center" abbr="Friday" scope="col">Fri</th><th align="center" abbr="Saturday" scope="col">Sat</th></tr><tr><td class="otherMonthDayStyle" align="center" width="14%"></td><td class="otherMonthDayStyle" align="center" width="14%"></td><td class="otherMonthDayStyle" align="center" width="14%"></td><td class="otherMonthDayStyle" align="center" width="14%"></td><td align="center" width="14%">1</td><td title="Mahatma Gandhi&#39;s Birthday" align="center" bgcolor="Green" width="14%">2</td><td align="center" width="14%">3</td></tr><tr><td align="center" bgcolor="#B91414" width="14%">4</td><td align="center" width="14%">5</td><td align="center" width="14%">6</td><td align="center" width="14%">7</td><td align="center" width="14%">8</td><td align="center" width="14%">9</td><td align="center" bgcolor="#B91414" width="14%">10</td></tr><tr><td align="center" bgcolor="#B91414" width="14%">11</td><td align="center" width="14%">12</td><td align="center" width="14%">13</td><td align="center" width="14%">14</td><td align="center" width="14%">15</td><td align="center" width="14%">16</td><td align="center" width="14%">17</td></tr><tr><td align="center" bgcolor="#B91414" width="14%">18</td><td align="center" width="14%">19</td><td title="Dusshera (Vijaya Dashmi)" align="center" bgcolor="Green" width="14%">20</td><td align="center" width="14%">21</td><td align="center" width="14%">22</td><td class="calendarToday" align="center" width="14%">23</td><td align="center" bgcolor="#B91414" width="14%">24</td></tr><tr><td align="center" bgcolor="#B91414" width="14%">25</td><td align="center" width="14%">26</td><td align="center" width="14%">27</td><td align="center" width="14%">28</td><td align="center" width="14%">29</td><td align="center" width="14%">30</td><td title="Sardar Vallabhbhai Patel&#39;s Birthday" align="center" bgcolor="Green" width="14%">31</td></tr><tr></tr>
+	</table>
+                                                </div>
+
+                                                <p style="padding-right: 0px; margin-top: 8px">
+                                                    These holidays are as per the orders issued by the State Government.
+                                                </p>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-12 calendarInfo">
+
+                                                    <div class="box green "></div>
+                                                    <p>
+                                                        Public Holiday
+
+                                                    </p>
+
+
+                                                </div>
+
+
+
+
+                                                <div class="col-md-12 calendarInfo">
+                                                    <div class="box red "></div>
+                                                    <p>
+                                                        Weekly Off
+
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-md-12 calendarInfo">
+                                                    <ul class="footer-contact mt-4">
+                                                        <li class="mb-0">
+                                                            <div class="icon">
+                                                                <i class="far fa-download"></i>
+                                                            </div>
+                                                            <div class="content">
+
+                                                                
+                                                                <a href="Download/GovernmentHolidays.pdf" target="_blank">
+                                                                    <h6>
+                                                                        Holiday List
+                                                                    </h6>
+                                                                </a>
+
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div>
+                                            <p
+                                                style="margin: 0; color: #fff; text-align: center; padding: 10px 0; font-size: 16px; color: #ffffff;">
+                                                Website is best viewed with 1280 × 800 resolution in Firefox 64.0 / Chrome 72.0 above | Site
+Version : 5.1.6
+
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="copyright">
+                                    <div class="row">
+                                        <div class="col-md-4 align-self-center">
+                                            <p class="copyright-text">
+                                                &copy;
+                                    Copyright
+                                                <span id="date"></span>
+                                                <a href="HomePage.aspx">
+                                                    Digital Gujarat
+                                                </a>
+                                                All Rights Reserved.
+                                                 <img class="imgdg" src="assets/img/logo/w3c.png" alt="w3c">
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4  p-0">
+                                            <ul class="copyright-text list-style d-flex justify-content-center">
+                                                <li>
+                                                    Last Updated :
+                                                    <a>
+                                                        23-03-2026 12:00 PM</a> &nbsp;</li>
+                                                <li>
+                                                    Visitors : 
+                                                    <a>
+                                                        486722336</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4">
+                                            <ul class="copyright-text list-style d-flex justify-content-center">
+                                                <li>
+                                                    Design &amp; Develop By &nbsp;
+                                                    <a target="_blank" href="https://guj.nic.in">
+                                                        National Informatics Centre
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <!-- </div>
+                     <div class="col-md-6 align-self-center">
+                         <p class="copyright-text">
+                             &copy; Copyright <span id="date"></span> <a href="#"> Digital Gujarat </a> All Rights
+                             Reserved.
+                         </p>
+                     </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                
+</div>
+            <!-- footer area end -->
+
+            <!-- scroll-top -->
+            <a href="#" aria-label="link" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+            <!-- scroll-top end -->
+
+
+            <script src="/bundles/js?v=rUAkrYvgEr-q-SLalBnl-qKJhMhThxjcrnm7Ry3IBmo1"></script>
+
+            <script src="/bundles/custom?v="></script>
+
+            <script src='/assets/js/digitalgujarat.js'></script>
+            
+        </div>
+    </form>
+    
+</body>
+</html>

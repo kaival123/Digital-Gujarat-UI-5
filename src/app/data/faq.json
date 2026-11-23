@@ -1,0 +1,26 @@
+[
+ {
+  "q": "About Digital Gujarat",
+  "a": [
+   "Digital Gujarat is an online portal developed by the Gujarat Government to provide easy access to various government services for citizens. Through this platform, users can apply for certificates, scholarships, and essential government services, and perform Aadhar-related updates from a single portal."
+  ]
+ },
+ {
+  "q": "How can I register on Digital Gujarat?",
+  "a": [
+   "To register, visit the Digital Gujarat homepage and click on the 'Login/Register' button and select Citizen Login. You will be redirect to Citizen SSO Portal. More information will be available in User Manual."
+  ]
+ },
+ {
+  "q": "How can I apply for Income Certificate?",
+  "a": [
+   "To apply for an Income Certificate, log in to Digital Gujarat, select 'Income Certificate' and upload documents showing proof of income, such as salary slips or bank statements."
+  ]
+ },
+ {
+  "q": "How can I check the status of my application?",
+  "a": [
+   "After submitting your application, you can track its status by logging in to your Digital Gujarat account and going to the 'My Applications' section."
+  ]
+ }
+]

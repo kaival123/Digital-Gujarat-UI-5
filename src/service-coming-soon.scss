@@ -1,0 +1,33 @@
+/* ===== "Coming soon" service page ===== */
+:root .cs { position: relative; overflow: hidden; isolation: isolate; background: var(--p-bg-2); }
+:root .cs-blob { position: absolute; z-index: -1; border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; opacity: 0.5; animation: cs-morph 16s ease-in-out infinite; pointer-events: none; }
+:root .cs-blob-a { width: 420px; height: 420px; left: -120px; top: -100px; background: color-mix(in srgb, var(--p-gold-2) 22%, transparent); }
+:root .cs-blob-b { width: 460px; height: 460px; right: -140px; bottom: -150px; background: color-mix(in srgb, var(--brand) 15%, transparent); animation-delay: -7s; }
+@keyframes cs-morph { 50% { border-radius: 58% 42% 37% 63% / 56% 59% 41% 44%; translate: 30px 24px; } }
+
+:root .cs-card { max-width: 680px; margin-inline: auto; display: grid; justify-items: center; gap: 14px; text-align: center; padding: clamp(28px, 5vw, 56px); border: 1px solid var(--p-line); border-radius: var(--p-r-lg); background: var(--p-surface); box-shadow: var(--p-sh-2);
+  h2 { margin: 0; font: 800 clamp(2rem, 1.4rem + 3vw, 3.4rem)/1.1 var(--p-font); letter-spacing: -0.02em; color: var(--p-ink); }
+  hr { width: 100%; border: 0; border-top: 1px solid var(--p-line); margin: 8px 0 0; } }
+:root .cs-kicker { margin: 0; padding: 5px 12px; border-radius: 4px; background: color-mix(in srgb, var(--brand) 9%, transparent); color: var(--brand); font: 700 0.74rem/1 var(--p-font); letter-spacing: 0.18em; text-transform: uppercase; }
+:root .cs-text { margin: 0; color: var(--p-muted); font-size: 1.1rem; }
+:root .cs-back { margin: 0; color: var(--p-muted); line-height: 1.7; a { color: var(--brand); font-weight: 700; } }
+
+:root .cs-art { position: relative; width: 150px; height: 120px; margin-bottom: 6px; }
+:root .cs-gear { position: absolute; display: grid; place-items: center; color: var(--brand); i { line-height: 1; } }
+:root .cs-gear-1 { left: 8px; top: 6px; font-size: 5rem; animation: cs-spin 9s linear infinite; }
+:root .cs-gear-2 { right: 8px; bottom: 0; font-size: 3.2rem; color: var(--p-gold-2); animation: cs-spin 6s linear infinite reverse; }
+:root .cs-badge { position: absolute; left: 50%; top: 50%; translate: -50% -50%; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--p-surface); border: 2px solid var(--p-line); color: var(--p-ink); box-shadow: var(--p-sh-1); animation: cs-tilt 2.4s ease-in-out infinite; i { font-size: 1.1rem; line-height: 1; } }
+@keyframes cs-spin { to { rotate: 360deg; } }
+@keyframes cs-tilt { 50% { rotate: 18deg; } }
+
+:root .cs-dots i { display: inline-block; font-style: normal; animation: cs-dot 1.4s ease-in-out infinite; &:nth-child(2) { animation-delay: 0.2s; } &:nth-child(3) { animation-delay: 0.4s; } }
+@keyframes cs-dot { 0%, 60%, 100% { translate: 0 0; opacity: 0.4; } 30% { translate: 0 -8px; opacity: 1; } }
+:root .cs-bar { width: min(100%, 320px); height: 6px; border-radius: 6px; background: var(--p-line-2); overflow: hidden; i { display: block; width: 40%; height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--p-gold-2), var(--brand)); animation: cs-load 2.2s ease-in-out infinite; } }
+@keyframes cs-load { from { translate: -100% 0; } to { translate: 260% 0; } }
+
+:root .cs-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px; }
+:root .cs-btn { display: inline-flex; align-items: center; gap: 9px; padding: 12px 18px; border-radius: var(--p-r); border: 1.5px solid color-mix(in srgb, var(--brand) 45%, transparent); color: var(--brand); font: 700 0.92rem/1.2 var(--p-font); text-decoration: none; transition: transform 0.3s var(--p-ease), background 0.3s, box-shadow 0.3s; i { font-size: 0.95rem; line-height: 1; } &:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--brand) 8%, transparent); } }
+:root .cs-btn-main { color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 8px 20px color-mix(in srgb, var(--brand) 28%, transparent); &:hover { background: linear-gradient(135deg, var(--brand), var(--brand-2)); } }
+
+@media (max-width: 480px) { :root .cs-btn { width: 100%; justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { :root .cs-blob, :root .cs-gear, :root .cs-badge, :root .cs-dots i, :root .cs-bar i { animation: none; } }

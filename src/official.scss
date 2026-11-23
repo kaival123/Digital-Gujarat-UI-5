@@ -1,0 +1,337 @@
+/* ===== Official layer — government-portal look, loaded last =====
+   Replaces the "fancy" details of the premium layer with an institutional language:
+   Noto Sans (+ Noto Sans Gujarati) throughout, solid brand blue, saffron / white / green accents (the national tricolour),
+   small radii, flat surfaces with hairline borders, no italics, no outlined numerals, no glows, minimal motion.
+   Same scope rule as premium.scss: only zones below the banner; the banner, top bar, header and floating accessibility button are untouched. */
+
+/* ---------- typography ---------- */
+:root :is(.quick, .ticker, .section, .stats, .promo, .cta-band, .site-footer, .palette, .ax-drawer) { font-family: var(--p-font); }
+:root :is(.quick, .section, .stats, .promo, .cta-band, .site-footer, .palette, .ax-drawer) :is(h1, h2, h3, h4, .p-card-title, button, input, kbd, .p-button) { font-family: var(--p-font); }
+:root :is(.quick, .section, .promo, .cta-band, .stats) h2 { font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; font-size: clamp(1.7rem, 1.15rem + 1.8vw, 2.5rem); font-variation-settings: normal; text-wrap: balance; }
+:root :is(.section, .promo, .cta-band, .stats) h2 .accent, :root .fb-lead h2 em { font-style: normal; font-weight: 700; color: var(--brand); }
+:root .promo h2 .accent { color: var(--p-gold-2); }
+:root :is(.step-body h3, .feature-row > * h3, .sitemap-grid .p-card-title, .help-card h3, .contact-cards a, .gs-title, .gs-count b, .group-title, .prose h2, .section .p-card .p-card-title, .fbk-side h2, .site-footer .footer-cta h3, .palette .pal-input input, .ax-head h2) {
+  font-family: var(--p-font); font-weight: 700; letter-spacing: -0.01em; }
+:root .site-footer .footer-cta h3 { font-size: clamp(1.3rem, 1rem + 1vw, 1.8rem); }
+:root .accordion-title, :root .section .p-accordion .p-accordionheader { font-family: var(--p-font); font-weight: 600; font-size: 1.05rem; }
+:root .stat strong, :root .stat strong span { font-family: var(--p-font); font-weight: 700; font-variation-settings: normal; letter-spacing: -0.02em; }
+:root :is(.section, .quick, .stats, .promo, .cta-band) p, :root .section li { line-height: 1.65; }
+
+/* ---------- tricolour accents instead of gold hairlines ---------- */
+:root .section-head h2::after { width: 72px; height: 4px; border-radius: 0; margin-top: 18px; background: linear-gradient(90deg, #22d3ee, var(--brand-2) 55%, var(--brand)); }
+:root .fb::before { left: 0; right: 0; top: 0; height: 4px; border-radius: 12px 12px 0 0; background: linear-gradient(90deg, #22d3ee, var(--brand-2) 55%, var(--brand)); }
+:root .quick-card::before { display: none; }
+:root .site-footer::before { opacity: 1; inset: 0 0 auto 0; height: 5px; mask-image: none; background: linear-gradient(90deg, #22d3ee, var(--brand-2) 55%, var(--brand)); }
+:root .site-footer::after { display: none; }
+:root .site-footer { background: var(--p-navy); }
+
+/* eyebrow labels: square bullet + brand-blue caps */
+:root :is(.section-head, .explorer-head, .faq-split, .head-row, .holiday-copy, .promo-copy, .about, .help, .fig-copy, .trend-intro, .steps-intro, .atlas-rail) .p-tag,
+:root :is(.fb-kicker, .cta-kicker, .fbk-kicker, .fc-kicker, .sl-cats-title, .lu-title, .policy-title) {
+  color: var(--brand) !important; font: 700 0.78rem/1 var(--p-font) !important; letter-spacing: 0.1em; gap: 10px; }
+:root :is(.section-head, .explorer-head, .faq-split, .head-row, .holiday-copy, .promo-copy, .about, .help, .fig-copy, .trend-intro, .steps-intro, .atlas-rail) .p-tag::before,
+:root :is(.fb-kicker)::before { width: 10px; height: 10px; border-radius: 2px; background: #22d3ee; }
+:root .promo .p-tag { color: #fff !important; }
+:root .site-footer .fc-kicker { color: #22d3ee !important; }
+:root .pal-label { color: var(--brand); font-family: var(--p-font); letter-spacing: 0.1em; i { color: #22d3ee; } }
+
+/* ---------- radii + surfaces: small, flat, hairline ---------- */
+:root :is(.quick, .section, .promo, .cta-band, .stats, .site-footer) :is(.p-button, a[pButton], button[pButton]) { border-radius: 6px; font-weight: 600; padding: 0.72rem 1.25rem; letter-spacing: 0; }
+:root :is(.section, .promo, .cta-band) .p-button:not(.p-button-outlined):not(.p-button-text):not(:disabled) { background: var(--brand); border-color: var(--brand); box-shadow: none; &:hover { background: var(--p-navy); border-color: var(--p-navy); box-shadow: none; } }
+:root .promo .p-button:not(.p-button-outlined):not(:disabled), :root .help-card .p-button, :root .site-footer .footer-cta .p-button { background: #22d3ee !important; color: #04122e !important; border: 0 !important; box-shadow: none !important; &:hover { background: #ffa94d !important; } }
+:root.app-dark :is(.section, .cta-band) .p-button:not(.p-button-outlined):not(.p-button-text):not(:disabled) { background: #22d3ee; color: #04122e; box-shadow: none; &:hover { background: #ffa94d; box-shadow: none; } }
+:root :is(.section, .promo, .cta-band) .p-button.p-button-outlined { border-radius: 6px; border-width: 1.5px; border-color: var(--brand); color: var(--brand); &:hover { background: color-mix(in srgb, var(--brand) 8%, transparent); border-color: var(--brand); color: var(--brand); } }
+:root .promo .p-button.p-button-outlined, :root .promo .on-dark { color: #fff; border-color: rgba(255, 255, 255, 0.7); &:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; } }
+:root .p-carousel .p-carousel-prev-button .p-button, :root .p-carousel .p-carousel-next-button .p-button { border-radius: 6px; width: 44px; height: 44px; box-shadow: none; &:hover:not(:disabled) { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: none; transform: none; } }
+:root .p-carousel .p-carousel-indicator-button { border-radius: 2px; } :root .p-carousel .p-carousel-indicator-active .p-carousel-indicator-button { background: var(--brand); }
+:root :is(.fb-tiles a, .atlas-tab, .quick-input, .ex-card, .atlas-list a, .svc-card, .video-card, .manual, .news li, .trend-card, .list-toolbar, .sl-cats a, .policy-rail a, .help-card, .legend span, .trend-chips button, .pal-chips button) { border-radius: 8px; }
+:root :is(.fb-ic, .atlas-list img, .ex-card img, .svc-card img, .tc-icon, .step-icon, .stat-icon, .perk-icon, .hc-ic, .manual i:first-child, .pal-body li .ic) { border-radius: 8px; }
+:root :is(.ct, .hot, .num, .chips li, .legend span, .p-tag, .atlas-tab .ct) { border-radius: 4px; }
+:root .fb-lead .quick-input { border-radius: 8px; height: 58px; }
+:root .atlas-list a:hover, :root .steps-sec .steps li:hover { border-radius: 8px; }
+:root :is(.cf-card, .video-card .play i) { border-radius: 8px; }
+:root .cf-nav { border-radius: 6px; }
+:root .partners-marquee a { border-radius: 8px; box-shadow: none; }
+:root :is(.section .p-inputtext, .section .p-textarea, .section .p-select, .section .p-selectbutton .p-togglebutton) { border-radius: 6px !important; }
+:root .section .p-inputtext:focus, :root .section .p-textarea:focus, :root .section .p-select.p-focus { border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent); }
+:root .section .p-selectbutton .p-togglebutton.p-togglebutton-checked { background: var(--brand); color: #fff; }
+:root .section .p-paginator .p-paginator-page.p-paginator-page-selected { background: var(--brand); color: #fff; }
+
+/* ---------- no glows, no outlined numerals, no lifts ---------- */
+:root .promo .promo-inner { background: var(--p-navy); border: 0; box-shadow: none; &::before { display: none; } }
+:root .promo .promo-media::after { border-color: #22d3ee; opacity: 1; border-radius: 12px; }
+:root .promo .standee { border-radius: 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); }
+:root .perks li { border-radius: 8px; background: rgba(255, 255, 255, 0.08); } :root .perks .perk-icon { background: #22d3ee; color: #04122e; }
+:root .cta-inner { background: color-mix(in srgb, var(--brand) 7%, var(--p-surface)); border: 1px solid var(--p-line); border-top: 4px solid var(--brand); box-shadow: none; border-radius: 12px; &::before, &::after { display: none; } }
+:root .help-card, :root .figures .stat:first-child, :root .cta-box { background: var(--p-navy); border: 0; box-shadow: none; }
+:root .help-card .hc-ic { background: #22d3ee; color: #04122e; }
+:root .figures .stat { box-shadow: none; &::before { height: 3px; background: linear-gradient(90deg, #22d3ee, var(--brand-2) 55%, var(--brand)); } }
+:root .stat .stat-icon, :root .tc-icon, :root .fb-ic, :root .atlas-list img, :root .ex-card img, :root .svc-card img { background: color-mix(in srgb, var(--brand) 9%, transparent); color: var(--brand); }
+:root .trend-card .rank { -webkit-text-stroke: 0; color: color-mix(in srgb, var(--brand) 12%, transparent); font: 800 3.4rem/1 var(--p-font); }
+:root .steps-sec .steps .step-no { -webkit-text-stroke: 0; color: var(--brand); font: 800 clamp(2rem, 3vw, 2.6rem)/1 var(--p-font); }
+:root .feature-row > *::before { -webkit-text-stroke: 0; color: color-mix(in srgb, var(--brand) 18%, transparent); font: 800 2rem/1 var(--p-font); }
+:root :is(.atlas-tab .no, .atlas-list .ix, .sitemap-grid .p-card-title::before) { font-family: var(--p-font); font-weight: 700; color: var(--brand); }
+:root .atlas-tab.on { box-shadow: inset 4px 0 0 var(--brand); .ct { background: var(--brand); color: #fff; } }
+:root .atlas-tab .nm i, :root .atlas-head p i, :root .fb-tiles .fb-ic, :root .quick-input i, :root .contact-cards a { color: var(--brand); }
+:root .ticker-label { background: var(--brand); color: #fff; border-radius: 4px; letter-spacing: 0.08em; } :root .tick i { color: #22d3ee; }
+:root :is(.ex-card, .trend-card, .svc-card, .video-card, .manual, .news li, .fb-tiles a, .atlas-tab):hover { transform: none !important; }
+:root .ex-card::before { background: var(--brand); }
+:root .ex-card:hover, :root .trend-card:hover, :root .svc-card:hover, :root .video-card:hover, :root .manual:hover { border-color: var(--brand); box-shadow: var(--p-sh-2); }
+:root .fb-tiles a:hover { background: var(--brand); border-color: var(--brand); box-shadow: none; }
+:root .sl-cats a.on, :root .policy-rail a.on { background: var(--brand); border-color: var(--brand); }
+:root .news li { border-left-color: var(--brand); } :root .lu .news li::before { border-color: var(--brand); }
+:root .more, :root .trend-card .more { color: var(--brand); } :root .trend-card:hover .more { color: var(--p-navy); }
+:root .link-list a:hover { color: var(--brand); background: color-mix(in srgb, var(--brand) 7%, transparent); } :root .link-list li i, :root .group-title::before { color: var(--brand); background: transparent; }
+:root .group-title::before { background: #22d3ee; width: 5px; border-radius: 0; }
+:root .sitemap-grid .p-card { border-top-color: var(--brand); } :root .sitemap-grid .p-card:hover { border-top-color: #22d3ee; }
+:root .feature-row > *, :root .section .feature-row > .p-card { border-top-color: var(--brand); } :root .feature-row > *:hover { border-top-color: #22d3ee; }
+:root .holiday .legend .public { background: #22d3ee; } :root .holiday .legend .weekly { background: var(--brand); }
+:root .holiday .p-datepicker-day-selected, :root .holiday .p-datepicker-day.p-datepicker-day-selected { background: var(--brand) !important; color: #fff !important; }
+:root .holiday .p-datepicker-today > .p-datepicker-day { border-color: #22d3ee; color: var(--p-gold); }
+:root .holiday .p-datepicker-title { font-family: var(--p-font); font-weight: 700; }
+:root .chips li { background: color-mix(in srgb, var(--brand) 8%, transparent); color: var(--brand); }
+:root .not-found .code { font-family: var(--p-font); font-weight: 800; background: linear-gradient(135deg, #22d3ee, var(--brand) 60%, var(--brand-2)); -webkit-background-clip: text; background-clip: text; }
+
+/* ---------- overlays ---------- */
+:root .palette.p-dialog { border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); border-color: var(--p-line); }
+:root .palette .pal-body li.active { background: color-mix(in srgb, var(--brand) 9%, transparent); outline-color: var(--brand); }
+:root .palette .pal-body li .ic { background: color-mix(in srgb, var(--brand) 10%, transparent); color: var(--brand); }
+:root .palette .pal-chips button:hover { border-color: var(--brand); color: var(--brand); background: color-mix(in srgb, var(--brand) 8%, transparent); }
+:root:not(.a11y-contrast) .ax-drawer { --ux: var(--brand); --ux-soft: color-mix(in srgb, var(--brand) 10%, var(--p-surface)); --ux-line: var(--brand);
+  .ax-head { background: var(--p-navy); border-bottom: 4px solid #22d3ee; } .ax-head h2 { font-size: 1.15em; }
+  .ax-profile-head b, .ax-sec-head b { font-family: var(--p-font); font-weight: 700; }
+  .ax-tile, .ax-profiles button, .ax-seg, .ax-profile, .ax-sec, .ax-net { border-radius: 8px; }
+  .ax-tile.on, .ax-profiles button.on { border-color: var(--brand); background: var(--ux-soft); &::after { color: var(--brand); } }
+  .ax-tile:hover, .ax-profiles button:hover { border-color: var(--brand); transform: none; box-shadow: none; }
+  .ax-pico { background: var(--brand); color: #fff; border-radius: 8px; } .ax-reset { background: var(--brand); border-radius: 6px; &:hover { background: var(--p-navy); box-shadow: none; } } }
+:root.app-dark:not(.a11y-contrast) .ax-drawer .ax-reset { background: #22d3ee; color: #04122e; }
+
+/* ---------- icon contrast on brand-filled hover / active states (works for every theme, incl. Amber/Rose) ---------- */
+:root .fb-tiles a:hover { .fb-ic { background: rgba(255, 255, 255, 0.2); color: #fff; } .fb-ic i, .fb-go { color: #fff; } b { color: #fff; } small { color: rgba(255, 255, 255, 0.92); } }
+:root :is(.sl-cats, .policy-rail) a.on { color: #fff; > i, .go { color: #fff !important; } }
+:root :is(.sl-cats, .policy-rail) a:hover:not(.on) > i:first-child { color: var(--brand); }
+:root .steps-sec .steps li:hover .step-icon { background: var(--brand); border-color: var(--brand); color: #fff; }
+:root .figures .stat:hover .stat-icon, :root .stat:hover .stat-icon { background: var(--brand); color: #fff; }
+:root .figures .stat:first-child:hover .stat-icon { background: rgba(255, 255, 255, 0.2); }
+:root .ex-card:hover > i, :root .atlas-list a:hover > i { background: var(--brand); color: #fff; transform: none; }
+:root .atlas-list a:hover > i { background: transparent; color: var(--brand); }
+:root .atlas-tab.on .ct { background: var(--brand); color: #fff; }
+:root .video-card:hover .play i { background: var(--brand); color: #fff; }
+:root .p-carousel .p-carousel-prev-button .p-button:hover:not(:disabled) .p-icon, :root .p-carousel .p-carousel-next-button .p-button:hover:not(:disabled) .p-icon { color: #fff; }
+:root .gs-arrow:hover i, :root .cf-nav:hover i { color: inherit; }
+:root .cf-nav:hover { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* video play buttons: clear circular button with a large glyph (was a pale rounded square with a tiny icon) */
+:root .video-card .play i { width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; padding-left: 4px; background: #fff; color: var(--brand); border: 3px solid color-mix(in srgb, var(--brand) 85%, #000); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45); }
+:root .video-card:hover .play i { background: var(--brand); color: #fff; border-color: #fff; transform: scale(1.06); }
+
+/* icon glyph sizes: PrimeNG sets `.pi { font-size: var(--p-icon-size) }` (14px), which ignored the container sizes and left icons tiny inside their tiles */
+:root .fb-ic > i, :root .quick-input > i { font-size: 1.3rem; }
+:root .stat-icon > i { font-size: 1.35rem; }
+:root .perk-icon > i { font-size: 1.2rem; } :root .perk-icon.big > i { font-size: 1.5rem; }
+:root .hc-ic > i { font-size: 1.4rem; }
+:root .step-icon > i { font-size: 1.4rem; }
+:root .atlas-head p > i, :root .atlas-tab .nm > i { font-size: 1rem; }
+:root .site-footer .social a > i, :root .topbar .social a > i { font-size: 1.15rem; }
+:root .gs-arrow > i, :root .cf-nav > i { font-size: 1.1rem; }
+:root .manual > i:first-child { font-size: 1.3rem; } :root .manual .dl { font-size: 1.1rem; }
+:root .chips li > i, :root .legend i { font-size: 0.9rem; }
+:root .atlas-list a > i, :root .fb-go { font-size: 0.95rem; }
+:root .not-found i, :root .empty > i, :root .pal-empty > i { font-size: 1.6rem; }
+:root .list-toolbar .p-inputicon, :root .sl-rail .p-inputicon { font-size: 1rem; }
+:root .news .more i, :root .contact-cards i { font-size: 0.9rem; }
+
+/* icon-only buttons (carousel arrows etc.) must not inherit the text-button padding, which squeezed their SVG to 2 px */
+:root .p-carousel :is(.p-carousel-prev-button, .p-carousel-next-button) .p-button, :root .p-button.p-button-icon-only { padding: 0; }
+:root .p-carousel :is(.p-carousel-prev-button, .p-carousel-next-button) .p-button .p-icon { width: 18px; height: 18px; flex: none; }
+:root :is(.quick, .section, .promo, .cta-band, .stats, .site-footer) .p-button.p-button-icon-only { padding: 0; min-width: 2.4rem; .p-icon { width: 16px; height: 16px; flex: none; } }
+
+/* alignment: icon-only round/square buttons centre their glyph on both axes (grid rows were content-sized, leaving the icon at the top) */
+:root .p-carousel :is(.p-carousel-prev-button, .p-carousel-next-button) .p-button, :root .gs-arrow, :root .cf-nav, :root .p-button.p-button-icon-only { display: grid; place-items: center; place-content: center; }
+:root .p-carousel :is(.p-carousel-prev-button, .p-carousel-next-button) .p-button { display: inline-flex; align-items: center; justify-content: center; }
+
+/* overflow: icon images in cards must use border-box (pages.scss sets content-box, so 84px + padding spilled into the title column) */
+:root :is(.svc-card, .ex-card, .atlas-list a, .trend-card .tc-icon) img { box-sizing: border-box; }
+:root .sl .svc-card { grid-template-columns: 84px minmax(0, 1fr); min-width: 0; img { width: 84px; height: 84px; } h3, .more { min-width: 0; overflow-wrap: anywhere; } }
+
+/* alignment: card number badge and favourite heart share one centre line; icon+text controls centre their icon on the text */
+:root .svc-card .num { top: 12px; right: 52px; left: auto; height: 26px; display: inline-flex; align-items: center; padding: 0 10px; line-height: 1; }
+:root .svc-card .fav { top: 9px; right: 12px; width: 32px; height: 32px; padding: 0; display: grid; place-items: center; line-height: 1; i { font-size: 1.05rem; } }
+:root :is(.quick, .section, .promo, .cta-band, .stats, .site-footer) :is(.p-button, a[pButton], button[pButton], .more, .p-tab, .atlas-tab .nm, .atlas-head p, .legend span, .chips li, .trend-chips button, .news .more) { display: inline-flex; align-items: center; gap: 0.5rem; line-height: 1.25; }
+:root :is(.section, .quick, .promo, .cta-band, .stats, .site-footer) :is(.p-button, a[pButton], .more, .p-tab, .legend span, .chips li) > i { line-height: 1; flex: none; }
+
+/* timeline: the dots must sit exactly on the vertical line (line at 150 px of the list, list has 8 px left padding) */
+:root .lu .news::before { left: 150px; width: 2px; background: var(--p-line); }
+:root .lu .news li::before { box-sizing: border-box; width: 14px; height: 14px; left: 136px; top: 28px; border-width: 2px; background: var(--p-surface); }
+@media (max-width: 900px) and (min-width: 641px) { :root .lu .news::before { left: 150px; } }
+
+/* the inline calendar must always be shown: PrimeNG's motion wrapper can leave an inline `display:none` on it */
+:root .hol-cal p-motion, :root .hol-cal .p-motion { display: block !important; width: 100%; }
+
+/* ---------- holidays: compact official calendar + notice panel ---------- */
+:root .hol-grid { display: grid; grid-template-columns: minmax(300px, 400px) minmax(0, 1fr); gap: clamp(16px, 2.4vw, 28px); align-items: start; }
+:root .hol-cal { order: 0; display: block; padding: 0; overflow: hidden; border-radius: 10px; background: var(--p-surface); border: 1px solid var(--p-line); box-shadow: var(--p-sh-1);
+  .p-datepicker, .holiday-cal { width: 100%; display: block; }
+  .p-datepicker-panel { width: 100%; min-width: 0; border: 0; background: transparent; padding: 0; box-shadow: none; display: block; }
+  .p-datepicker-calendar-container, .p-datepicker-calendar { width: 100%; }
+  .p-datepicker-header { background: var(--brand); color: #fff; padding: 10px 8px; margin: 0; border: 0; }
+  .p-datepicker-title { font: 700 1rem var(--p-font); color: #fff; } .p-datepicker-title button, .p-datepicker-select-month, .p-datepicker-select-year { color: #fff; font: 700 1rem var(--p-font); }
+  .p-datepicker-prev-button, .p-datepicker-next-button { color: #fff; } .p-datepicker-prev-button:hover, .p-datepicker-next-button:hover { background: rgba(255, 255, 255, 0.18); }
+  .p-datepicker-day-view { width: calc(100% - 24px); margin: 10px 12px 14px; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+  .p-datepicker-weekday-cell, th { padding: 6px 0; } .p-datepicker-weekday { font: 700 0.72rem var(--p-font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--p-muted); }
+  .p-datepicker-day-cell { padding: 2px; text-align: center; }
+  .p-datepicker-day { width: 2.4rem; height: 2.4rem; margin: 0 auto; border-radius: 50%; font: 600 0.9rem var(--p-font); display: inline-flex; align-items: center; justify-content: center; color: var(--p-ink); }
+  .p-datepicker-day:hover { background: color-mix(in srgb, var(--brand) 10%, transparent); }
+  .p-datepicker-other-month .p-datepicker-day, .p-datepicker-day-cell.p-datepicker-other-month { color: var(--p-muted); opacity: 0.55; }
+  tr > .p-datepicker-day-cell:first-child .p-datepicker-day { color: #c2410c; } /* Sunday = weekly off */
+  .p-datepicker-today > .p-datepicker-day { box-shadow: inset 0 0 0 2px #22d3ee; background: transparent; color: var(--p-ink); }
+  .p-datepicker-day-selected, .p-datepicker-day.p-datepicker-day-selected { background: var(--brand) !important; color: #fff !important; box-shadow: none; } }
+:root .hol-today { order: 1; display: grid; align-content: start; gap: 0; padding: clamp(20px, 2.6vw, 32px); border-radius: 10px; color: var(--p-ink); background: var(--p-surface); border: 1px solid var(--p-line); border-top: 4px solid var(--brand); box-shadow: var(--p-sh-1);
+  .ht-label { margin: 0 0 14px; font: 700 0.78rem/1 var(--p-font); letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); }
+  .ht-day { margin: 0; display: inline-grid; place-items: center; width: 84px; height: 84px; border-radius: 8px; background: var(--brand); color: #fff; font: 800 2.6rem/1 var(--p-font); grid-row: span 3; margin-right: 18px; }
+  .ht-week { margin: 0; font: 700 1.35rem/1.2 var(--p-font); align-self: end; } .ht-month { margin: 2px 0 0; color: var(--p-muted); font-size: 1rem; align-self: start; }
+  .legend { display: grid; gap: 10px; margin: 22px 0 20px; padding: 16px 0 0; border-top: 1px solid var(--p-line); span { display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 0; color: var(--p-ink); font-weight: 600; } .dot { width: 12px; height: 12px; border-radius: 50%; } .public { background: #22d3ee; } .weekly { background: #c2410c; } }
+  .p-button { justify-self: start; } }
+:root .hol-today { grid-template-columns: auto 1fr; .ht-label, .legend, .p-button { grid-column: 1 / -1; } }
+@media (max-width: 800px) { :root .hol-grid { grid-template-columns: 1fr; } }
+
+/* icon-only buttons: no flex gap (an empty label span + the 0.5rem gap pushed the glyph 4 px left of centre) */
+:root :is(.quick, .section, .promo, .cta-band, .stats, .site-footer) .p-button.p-button-icon-only, :root .p-carousel :is(.p-carousel-prev-button, .p-carousel-next-button) .p-button, :root .p-button.p-button-icon-only { gap: 0; }
+:root .p-button.p-button-icon-only .p-button-label, :root .p-carousel .p-button .p-button-label { display: none; }
+
+/* scroll-to-top + any remaining icon-only buttons: flex centring (grid left the chevron 10 px high in the round button) */
+:root p-scrolltop button.p-scrolltop, :root .p-button.p-button-icon-only { display: inline-flex; align-items: center; justify-content: center; }
+:root p-scrolltop button.p-scrolltop .p-icon { width: 16px; height: 16px; flex: none; }
+
+/* ===== responsive hardening, 320 → 1920 px ===== */
+/* single-column states must be minmax(0, 1fr): a bare 1fr lets long words/URLs widen the track past the viewport (privacy page at 320 px) */
+@media (max-width: 960px) {
+  :root :is(.fb, .figures-grid, .atlas-grid, .trend-split, .steps-split, .faq-sec .faq-split, .hol-grid, .policy, .sl, .lu, .fbk, .about) { grid-template-columns: minmax(0, 1fr); }
+  :root :is(.promo .promo-inner) { grid-template-columns: minmax(0, 1fr); }
+}
+:root :is(.prose, .policy .prose, .news li > div, .svc-card h3, .ex-title, .step-body p, .help-card p, .fbk-side p, .manual span, .sitemap-grid a, .link-list a, .site-footer a, .site-footer p) { min-width: 0; overflow-wrap: anywhere; }
+:root :is(.policy, .sl, .lu, .fbk, .atlas-grid, .trend-split, .steps-split, .faq-split, .hol-grid) > * { min-width: 0; }
+/* touch targets: ≥ 40 px tall on phones/tablets and coarse pointers */
+@media (max-width: 768px), (pointer: coarse) {
+  :root :is(.site-footer nav a, .site-footer .bottom-inner a, .link-list a, .sl-cats a, .policy-rail a, .sitemap-grid a, .more, .trend-chips button, .pal-chips button, .atlas-tab, .legend a) { min-height: 40px; display: inline-flex; align-items: center; }
+  :root .site-footer nav ul { gap: 4px; }
+  :root .link-list { gap: 2px; }
+  :root .svc-card .more, :root .trend-card .more { min-height: 40px; }
+  :root .ex-foot .more, :root .atlas-head .more { padding-block: 6px; }
+}
+/* very small phones */
+@media (max-width: 360px) {
+  :root .container { width: calc(100% - 24px); }
+  :root .fb, :root .atlas-panel, :root .hol-cal, :root .hol-today, :root .help-card, :root .cta-inner, :root .prose, :root .feedback-form { padding: 16px; }
+  :root .fb-lead h2, :root :is(.section, .promo, .cta-band, .stats) h2 { font-size: 1.55rem; }
+  :root .atlas-list a { grid-template-columns: 24px 44px minmax(0, 1fr) 20px; gap: 10px; img { width: 44px; height: 44px; } }
+  :root .sl .svc-card { grid-template-columns: 64px minmax(0, 1fr); padding-right: 16px; img { width: 64px; height: 64px; } .num { right: 50px; } }
+  :root .steps-sec .steps li { grid-template-columns: 52px minmax(0, 1fr); gap: 12px; }
+  :root .figures .stat { padding: 20px; }
+  :root .hol-today .ht-day { width: 68px; height: 68px; font-size: 2.1rem; }
+}
+/* wide screens: keep line lengths and rails sensible */
+@media (min-width: 1700px) {
+  :root :is(.fb-lead h2, .fig-copy h2, .atlas-rail h2, .trend-intro h2, .steps-intro h2) { font-size: 2.9rem; }
+  :root .atlas-grid, :root .steps-split, :root .trend-split { gap: 96px; }
+  :root .prose { font-size: 1.05rem; }
+}
+@media (max-width: 768px), (pointer: coarse) {
+  :root .hol-cal :is(.p-datepicker-select-month, .p-datepicker-select-year) { min-height: 40px; padding-inline: 10px; }
+  :root .hol-cal :is(.p-datepicker-prev-button, .p-datepicker-next-button) { width: 44px; height: 44px; }
+  :root .ticker-label { min-height: 36px; display: inline-flex; align-items: center; }
+}
+
+/* ===== dark mode: readable text, icons and image tiles (zones below the banner only) =====
+   `--brand` (#1e40af on the default theme) is far too dark on near-black surfaces. Inside the zones it becomes a lighter tint
+   built from the theme's own --brand-2/--brand-3 (so every theme keeps its hue); solid fills that carry white text use --brand-2 instead. */
+:root.app-dark :is(.quick, .section, .stats, .promo, .cta-band, .site-footer, .palette, .ax-drawer) {
+  --brand: color-mix(in srgb, var(--brand-2) 55%, var(--brand-3));
+}
+:root.app-dark :is(.atlas-tab.on .ct, .sl-cats a.on, .policy-rail a.on, .hol-today .ht-day, .hol-cal .p-datepicker-header, .hol-cal .p-datepicker-day-selected, .section .p-paginator .p-paginator-page.p-paginator-page-selected, .section .p-selectbutton .p-togglebutton.p-togglebutton-checked, .fb-tiles a:hover, .steps-sec .steps li:hover .step-icon, .stat:hover .stat-icon, .ex-card:hover > i, .video-card:hover .play i, .p-carousel .p-button:hover:not(:disabled), .ax-pico) {
+  background: var(--brand-2) !important; border-color: var(--brand-2) !important; color: #fff;
+}
+:root.app-dark .sl-cats a.on, :root.app-dark .policy-rail a.on { color: #fff; }
+:root.app-dark .hol-cal .p-datepicker-header :is(.p-datepicker-title, button, .p-icon, svg) { color: #fff; }
+:root.app-dark .hol-cal tr > .p-datepicker-day-cell:first-child .p-datepicker-day { color: #fb923c; }
+:root.app-dark .hol-cal .p-datepicker-day { color: var(--p-ink); }
+:root.app-dark .hol-cal .p-datepicker-day-selected { color: #fff; }
+:root.app-dark .hol-today .legend .weekly { background: #fb923c; }
+:root.app-dark .atlas-tab.on { background: var(--p-surface); }
+/* line-art service icons are dark PNGs: give them a light tile so they stay visible */
+:root.app-dark :is(.atlas-list img, .ex-card img, .svc-card img, .tc-icon, .promo-card img) { background: #e9eefb; }
+:root.app-dark .trend-card .tc-icon img { filter: none; }
+:root.app-dark :is(.fb-ic, .stat-icon) { background: color-mix(in srgb, var(--brand) 20%, transparent); color: var(--brand); }
+:root.app-dark .trend-card .rank { color: color-mix(in srgb, var(--brand) 22%, transparent); }
+:root.app-dark :is(.more, .trend-card .more, .atlas-head p i, .atlas-tab .nm i, .atlas-tab .no, .atlas-list .ix, .steps-sec .steps .step-no) { color: var(--brand); }
+:root.app-dark :is(.p-tag, .section-head, .head-row, .fig-copy, .trend-intro, .steps-intro, .atlas-rail, .fb-lead) .p-tag, :root.app-dark :is(.fb-kicker, .cta-kicker, .fbk-kicker, .sl-cats-title, .lu-title, .policy-title, .ht-label) { color: var(--brand) !important; }
+:root.app-dark .cta-inner { background: color-mix(in srgb, var(--brand-2) 14%, var(--p-surface)); border-color: var(--p-line); border-top-color: var(--brand-2); }
+:root.app-dark .quick-input i { color: var(--brand); }
+:root.app-dark :is(.section, .promo, .cta-band) .p-button.p-button-outlined { color: var(--brand); border-color: var(--brand); }
+:root.app-dark .promo .p-button.p-button-outlined, :root.app-dark .promo .on-dark { color: #fff; border-color: rgba(255, 255, 255, 0.7); }
+:root.app-dark .video-card .play i { color: var(--brand-2); border-color: var(--brand-2); background: #fff; }
+:root.app-dark .video-card:hover .play i { color: #fff; }
+
+/* header navigation + dropdown/login menus in dark mode: the theme blue is unreadable on the dark glass pill (active "About Us"); light tint inside the menus only, light mode and the Login button untouched */
+:root.app-dark :is(.main-nav, .p-menubar-submenu, .p-menu, .p-menubar-root-list) { --brand: color-mix(in srgb, var(--brand-2) 55%, var(--brand-3)); }
+:root.app-dark .main-nav .p-menubar-root-list > .p-menubar-item > .p-menubar-item-content .router-link-active, :root.app-dark .main-nav .p-menubar-item-link.router-link-active { color: var(--brand); }
+/* header search pill + hamburger: same lighter tint in dark mode (dark-blue magnifier on a dark circle was invisible) */
+:root.app-dark :is(.site-header .search-pill, .site-header .p-menubar-button, .topbar .tp-btn) { --brand: color-mix(in srgb, var(--brand-2) 55%, var(--brand-3)); }
+:root.app-dark .site-header .search-pill i { color: var(--brand); }
+:root.app-dark .site-header .search-pill { border-color: color-mix(in srgb, var(--brand) 45%, transparent); }
+
+/* footer DST logo: the PNG is transparent with white lettering, so it sits directly on the dark footer (no white box) */
+:root .site-footer .dst { background: none; padding: 0; border-radius: 0; height: 56px; width: auto; max-width: 100%; }
+
+/* header: no gap between the top bar and the navigation pill (it stays floating once the page is scrolled) */
+:root .site-header .header-inner { top: 0; }
+:root .site-header { top: 0; }
+/* sticky navigation: no gap under the top bar at rest, floats 10px from the viewport top while scrolling */
+:root .site-header { top: 10px; }
+
+/* menus and the sticky header pill: 100% opaque backgrounds (page text no longer shows through) */
+:root .main-nav .p-menubar-submenu, :root .p-menubar-submenu, :root .p-menu.p-menu-overlay, :root .p-menu, :root .lang-panel.p-select-overlay, :root .tp-pop { background: var(--dg-card) !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; opacity: 1; }
+:root .site-header .header-inner, :root .site-header.scrolled .header-inner { background: var(--dg-card); backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* navigation bar: a floating pill (inside the container) at rest; once the page scrolls it eases out to a full-width, square "container-fluid" bar.
+   The top bar scrolls away; the navigation stays sticky at the top. */
+:root .site-header { top: 0; z-index: var(--z-header); }
+:root .site-header .header-inner {
+  top: 0; margin-inline: auto; background: var(--dg-card); backdrop-filter: none;
+  transition: width 0.5s var(--ease-out), max-width 0.5s var(--ease-out), border-radius 0.5s var(--ease-out), padding 0.5s var(--ease-out), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+:root .site-header.scrolled .header-inner {
+  width: 100%; max-width: 100%; border-radius: 0; padding: 8px clamp(12px, 2.4vw, 32px); border-color: transparent; border-bottom-color: var(--dg-border); box-shadow: 0 4px 16px rgba(20, 33, 61, 0.16);
+}
+@media (prefers-reduced-motion: reduce) { :root .site-header .header-inner { transition: none; } }
+
+/* smoother navbar morph: longer, gentler easing and every changing property animated together */
+:root .site-header .header-inner {
+  --nav-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 0.8s var(--nav-ease), max-width 0.8s var(--nav-ease), border-radius 0.8s var(--nav-ease), padding 0.8s var(--nav-ease), margin 0.8s var(--nav-ease), border-color 0.6s ease, background-color 0.6s ease, box-shadow 0.8s var(--nav-ease);
+  will-change: width, border-radius;
+}
+:root .site-header .header-inner > * { transition: gap 0.8s var(--nav-ease), margin 0.8s var(--nav-ease); }
+@media (prefers-reduced-motion: reduce) { :root .site-header .header-inner, :root .site-header .header-inner > * { transition: none; will-change: auto; } }
+
+/* outlined buttons on the dark promo band keep white text on hover */
+:root .promo .p-button.p-button-outlined:hover, :root .promo .p-button.p-button-outlined:focus-visible, :root .promo .on-dark:hover,
+:root.app-dark .promo .p-button.p-button-outlined:hover, :root.app-dark .promo .on-dark:hover { color: #fff; border-color: #fff; background: rgba(255, 255, 255, 0.14); }
+:root .promo .p-button.p-button-outlined:hover :is(i, span), :root .promo .on-dark:hover :is(i, span) { color: #fff; }
+
+/* table action buttons stay on one line, centred */
+:root .p-datatable .p-datatable-tbody > tr > td .p-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; text-align: center; line-height: 1.2; }
+
+:root .video-card .play { background: none; place-items: center; pointer-events: none; }
+:root .video-card .play i { width: 60px; height: 60px; font-size: 1.3rem; padding-left: 4px; }
+:root .video-card h3 { font-size: 1.05rem; }
+
+/* service cards: the whole card is the link (Read more stretches over it); the save heart stays clickable above */
+:root .svc-card { position: relative; cursor: pointer; }
+:root .svc-card .more::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+:root .svc-card .fav { position: absolute; z-index: 2; }
+:root .svc-card .more:focus-visible::after { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* ticker "Latest" badge: icon and text centred on one line */
+:root .ticker-label { display: inline-flex; align-items: center; justify-content: center; gap: 8px; line-height: 1; min-height: 34px; padding-block: 0; white-space: nowrap; text-decoration: none; }
+:root .ticker-label i { margin: 0; display: block; font-size: 0.95rem; line-height: 1; }

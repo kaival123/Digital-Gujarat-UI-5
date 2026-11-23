@@ -1,0 +1,218 @@
+@if (navigating()) { <div class="route-loading" role="progressbar" aria-label="Loading page" aria-busy="true"><i></i></div> }
+<div class="scroll-progress" aria-hidden="true" [style.transform]="'scaleX(' + progress() + ')'"></div>
+
+<!-- Utility bar -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left">
+      <span class="gov-tag"><i class="pi pi-shield"></i> Government of Gujarat</span>
+      <a class="skip-link" href="#main-content" (click)="skipToMain($event)"><i class="pi pi-step-forward"></i> Skip to main content</a>
+    </div>
+    <div class="topbar-right">
+      <div class="a11y" role="group" aria-label="Accessibility options">
+        <div class="font-ctl" role="group" aria-label="Text size">
+          <button type="button" class="fc-s" (click)="setFont(-5)" [disabled]="fontScale() <= 85" aria-label="Decrease text size" pTooltip="Smaller text" tooltipPosition="bottom"><i class="pi pi-minus" aria-hidden="true"></i></button>
+          <button type="button" class="fc-m" [class.on]="fontScale() === 100" (click)="setFont(0)" aria-label="Reset text size" pTooltip="Normal text" tooltipPosition="bottom"><span>A</span></button>
+          <button type="button" class="fc-l" (click)="setFont(5)" [disabled]="fontScale() >= 130" aria-label="Increase text size" pTooltip="Bigger text" tooltipPosition="bottom"><i class="pi pi-plus" aria-hidden="true"></i></button>
+        </div>
+        <div class="theme-pick">
+          <button type="button" class="tp-btn" (click)="themeOpen.set(!themeOpen()); $event.stopPropagation()" aria-label="Color theme" aria-haspopup="true" [attr.aria-expanded]="themeOpen()" pTooltip="Color theme" tooltipPosition="bottom"><i class="pi pi-palette"></i></button>
+          @if (themeOpen()) {
+            <div class="tp-pop" role="group" aria-label="Color theme" (click)="$event.stopPropagation()">
+              <span class="tp-title">Color theme</span>
+              <div class="tp-grid">
+                @for (t of themes; track t.key) {
+                  <button type="button" class="tp-opt" [class.on]="t.key === theme().key" (click)="setTheme(t)" [attr.aria-label]="t.name" [attr.aria-pressed]="t.key === theme().key">
+                    <span class="tp-dot" [style.background]="t.dot ?? ('linear-gradient(135deg,' + t.main + ',' + t.a2 + ')')"></span>
+                    <small>{{ t.name }}</small>
+                  </button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+        <span class="sep"></span>
+        <i class="pi" [class.pi-sun]="!dark()" [class.pi-moon]="dark()"></i>
+        <p-toggleswitch [ngModel]="dark()" (ngModelChange)="toggleDark($event)" ariaLabel="Toggle dark mode" />
+      </div>
+      <div class="lang"><i class="pi pi-globe" aria-hidden="true"></i><p-select [options]="languages" [(ngModel)]="language" optionLabel="label" (onChange)="setLanguage($event.value.code)" size="small" styleClass="lang-select" panelStyleClass="lang-panel" appendTo="body" ariaLabel="Language" /></div>
+      <div class="social">
+        @for (s of social; track s.label) {
+          <a [href]="s.url" target="_blank" rel="noopener" [attr.aria-label]="s.label"><i [class]="s.icon"></i></a>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" [class.scrolled]="scrolled()">
+  <div class="container header-inner">
+    <a class="brand" routerLink="/" aria-label="Digital Gujarat home">
+      <img src="assets/img/logo/emblem-of-india.png" alt="Emblem of India" class="emblem">
+      <img src="assets/img/logo/logodig.png" alt="Digital Gujarat" class="logo">
+    </a>
+    <p-menubar [model]="nav" breakpoint="1180px" class="main-nav" />
+    <button type="button" class="search-pill" (click)="search.show()" aria-label="Search services (Ctrl+K)">
+      <i class="pi pi-search"></i><span>Search</span><kbd>Ctrl K</kbd>
+    </button>
+    <button pButton type="button" class="login-btn" [rounded]="true" aria-label="Login / Register" (click)="loginClick(loginPanel, $event)" (pointerenter)="loginEnter(loginPanel, $event)" (pointerleave)="loginLeave(loginPanel, $event)"><i class="pi pi-sign-in"></i><span class="login-label"> Login / Register</span></button>
+  </div>
+</header>
+
+<main id="main">
+  <router-outlet />
+</main>
+<app-command-palette />
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container footer-cta">
+    <div><p class="fc-kicker">Need help?</p><h3>Our helpdesk is open 10 AM – 6 PM, every day.</h3></div>
+    <a pButton routerLink="/help-desk">Contact helpdesk <i class="pi pi-arrow-right"></i></a>
+  </div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo/logodig.png" alt="Digital Gujarat" class="logo">
+      <p>Digital Gujarat is the single window for Government of Gujarat services to citizens, businesses and institutions.</p>
+      <div class="social">
+        @for (s of social; track s.label) {
+          <a [href]="s.url" target="_blank" rel="noopener" [attr.aria-label]="s.label"><i [class]="s.icon"></i></a>
+        }
+      </div>
+      <a href="https://dst.gujarat.gov.in/" target="_blank" rel="noopener"><img src="assets/citizen/logos/DSTlogo.png" alt="Department of Science &amp; Technology" class="dst"></a>
+    </div>
+    <nav aria-label="Quick links">
+      <h4>Quick Links</h4>
+      <ul>
+        @for (l of quickLinks; track l.label) {
+          <li>@if (l.route) { <a [routerLink]="l.route">{{ l.label }}</a> } @else { <a [href]="l.url" target="_blank" rel="noopener">{{ l.label }}</a> }</li>
+        }
+      </ul>
+    </nav>
+    <nav aria-label="Important links">
+      <h4>Policies &amp; Help</h4>
+      <ul>
+        @for (l of importantLinks; track l.label) {
+          <li>@if (l.route) { <a [routerLink]="l.route">{{ l.label }}</a> } @else { <a [href]="l.url" target="_blank" rel="noopener">{{ l.label }}</a> }</li>
+        }
+      </ul>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <div class="container bottom-inner">
+      <span>© {{ year }} Digital Gujarat. All Rights Reserved.</span>
+      <span>Visitors: 486718029</span>
+      <span>Site best viewed in Chrome 72+ / Firefox 64+</span>
+      <span>Designed &amp; developed by <a href="https://guj.nic.in" target="_blank" rel="noopener">National Informatics Centre</a></span>
+      <img src="assets/img/logo/w3c.png" alt="W3C" class="w3c">
+    </div>
+  </div>
+</footer>
+
+<p-menu #loginPanel [model]="loginMenu" [popup]="true" appendTo="body" (onShow)="loginShown(loginPanel)" />
+<p-scrolltop />
+
+@if (a11y.prefs().guide) { <div class="reading-guide" aria-hidden="true" [style.top.px]="a11y.guideY()"></div> }
+
+@if (a11yOpen()) {
+  <div class="ax-backdrop" (click)="closeA11y()" aria-hidden="true"></div>
+  <aside id="a11y-drawer" class="ax-drawer" role="dialog" aria-labelledby="ax-title" [class.list]="a11yView() === 'list'">
+    <header class="ax-head">
+      <h2 id="ax-title">Accessibility Options</h2>
+      <button type="button" class="ax-close" aria-label="Close accessibility options" (click)="closeA11y()"><i class="pi pi-times" aria-hidden="true"></i></button>
+    </header>
+
+    <div class="ax-body">
+      <div class="ax-viewrow">
+        <span>{{ a11yView() === 'grid' ? 'Grid View' : 'List View' }}</span>
+        <div class="ax-seg" role="group" aria-label="Layout">
+          <button type="button" [class.on]="a11yView() === 'grid'" (click)="a11yView.set('grid')" aria-label="Grid view" [attr.aria-pressed]="a11yView() === 'grid'"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.6" fill="currentColor"/><rect x="13" y="3" width="8" height="8" rx="1.6" fill="currentColor"/><rect x="3" y="13" width="8" height="8" rx="1.6" fill="currentColor"/><rect x="13" y="13" width="8" height="8" rx="1.6" fill="currentColor"/></svg></button>
+          <button type="button" [class.on]="a11yView() === 'list'" (click)="a11yView.set('list')" aria-label="List view" [attr.aria-pressed]="a11yView() === 'list'"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg></button>
+        </div>
+      </div>
+
+
+      @if (a11y.status()) { <p class="ax-net ax-status" aria-live="polite"><i class="pi pi-info-circle" aria-hidden="true"></i> {{ a11y.status() }}</p> }
+
+      <section class="ax-profile" [class.open]="a11yOpenSections()['profile']">
+        <button type="button" class="ax-profile-head" (click)="toggleSection('profile')" [attr.aria-expanded]="a11yOpenSections()['profile']">
+          <span class="ax-pico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.6"/><path d="M4.5 8.5l7.5 1.5 7.5-1.5M12 10v5m0 0l-3 5.5M12 15l3 5.5"/></svg></span>
+          <b>Accessibility Profile</b>
+          <span class="ax-caret" [class.up]="a11yOpenSections()['profile']" aria-hidden="true"></span>
+        </button>
+        @if (a11yOpenSections()['profile']) {
+          <ul class="ax-profiles">
+            @for (p of profiles; track p.key) {
+              <li>
+                <button type="button" [class.on]="activeProfile() === p.key" [attr.aria-pressed]="activeProfile() === p.key" [attr.title]="p.hint" (click)="applyProfile(p)">
+                  @switch (p.icon) {
+                    @case ('svg:brain') { <svg class="ax-psvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3.5A3 3 0 0 0 6.6 6 3.2 3.2 0 0 0 4 9.2c0 1 .4 1.8 1 2.4A3.3 3.3 0 0 0 5.5 17 3 3 0 0 0 9 19.5a2.5 2.5 0 0 0 3-1.5V5.5a2 2 0 0 0-2.5-2zM14.5 3.5A3 3 0 0 1 17.4 6 3.2 3.2 0 0 1 20 9.2c0 1-.4 1.8-1 2.4a3.3 3.3 0 0 1-.5 5.4 3 3 0 0 1-3.5 2.5 2.5 2.5 0 0 1-3-1.5V5.5a2 2 0 0 1 2.5-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9.5h2M14 9.5h2M8 14h2M14 14h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> }
+                    @case ('svg:shades') { <svg class="ax-psvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3.5 9.5h7v3a3.5 3.5 0 0 1-3.5 3.5h0A3.5 3.5 0 0 1 3.5 12.5zM13.5 9.5h7v3a3.5 3.5 0 0 1-3.5 3.5h0a3.5 3.5 0 0 1-3.5-3.5z" fill="currentColor"/></svg> }
+                    @case ('svg:glasses-sound') { <svg class="ax-psvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h6M13 9h3M3 9v3.5A3.5 3.5 0 0 0 6.5 16h0A3.5 3.5 0 0 0 10 12.5V9M12 12.5A3.5 3.5 0 0 0 15.5 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M18 11.5q1.5 1.5 0 3M20.5 10q3 3 0 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> }
+                    @case ('svg:cane') { <svg class="ax-psvg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="4.5" r="1.8" fill="currentColor"/><path d="M10 8l-2 5 2.5 2 .5 6M10 8l3 4h-2.5M16.5 9.5v11M14.5 9.5h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> }
+                    @case ('svg:hand') { <svg class="ax-psvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 5.5a1.5 1.5 0 0 1 3 0V11M14 7a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-6 6h-.5a6 6 0 0 1-5-2.7L3.5 15a1.5 1.5 0 0 1 2.5-1.6L8 15.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> }
+                    @case ('svg:puzzle') { <svg class="ax-psvg" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a2 2 0 1 1 4 0v1h3a1 1 0 0 1 1 1v3h-1a2 2 0 1 0 0 4h1v3a1 1 0 0 1-1 1h-3v-1a2 2 0 1 0-4 0v1H7a1 1 0 0 1-1-1v-3h1a2 2 0 1 0 0-4H6V6a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> }
+                    @default { @if (p.icon.startsWith('pi-')) { <i class="pi {{ p.icon }}" aria-hidden="true"></i> } @else { <span class="ax-glyph" aria-hidden="true">{{ p.icon }}</span> } }
+                  }
+                  <b>{{ p.name }}</b>
+                </button>
+              </li>
+            }
+          </ul>
+        }
+      </section>
+
+      @for (sec of [
+        { key: 'color', title: 'Color Adjustment', tiles: colorTiles },
+        { key: 'content', title: 'Content Adjustment', tiles: contentTiles },
+        { key: 'orient', title: 'Orientation Adjustment', tiles: orientTiles }
+      ]; track sec.key) {
+        <section class="ax-sec">
+          <button type="button" class="ax-sec-head" (click)="toggleSection(sec.key)" [attr.aria-expanded]="a11yOpenSections()[sec.key]">
+            <b>{{ sec.title }}</b>
+            <span class="ax-caret" [class.up]="a11yOpenSections()[sec.key]" aria-hidden="true"></span>
+          </button>
+          @if (a11yOpenSections()[sec.key]) {
+            <div class="ax-tiles">
+              @for (t of sec.tiles; track t.label) {
+                <button type="button" class="ax-tile" [class.on]="t.on()" [attr.aria-pressed]="t.on()" (click)="t.run()">
+                  @switch (t.icon) {
+                    @case ('svg:drop-dots') { <svg class="ax-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C8.5 7 5.5 10.2 5.5 14a6.5 6.5 0 0 0 13 0c0-3.8-3-7-6.5-11.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><g fill="currentColor"><circle cx="9.5" cy="14" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="14.5" cy="14" r="1"/><circle cx="12" cy="16.5" r="1"/><circle cx="9.5" cy="17.5" r="1"/><circle cx="14.5" cy="17.5" r="1"/></g></svg> }
+                    @case ('svg:drop-half') { <svg class="ax-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C8.5 7 5.5 10.2 5.5 14a6.5 6.5 0 0 0 13 0c0-3.8-3-7-6.5-11.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 2.5C8.5 7 5.5 10.2 5.5 14a6.5 6.5 0 0 0 6.5 6.5z" fill="currentColor"/></svg> }
+                    @case ('svg:lineh') { <svg class="ax-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v16M3.5 6.5L6 4l2.5 2.5M3.5 17.5L6 20l2.5-2.5M12 6h9M12 12h9M12 18h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> }
+                    @case ('svg:spacing') { <svg class="ax-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 12.5L12 3.5l3.5 9M9.7 9.5h4.6M3 19h18M5.5 16.5L3 19l2.5 2.5M18.5 16.5L21 19l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> }
+                    @case ('svg:drop-fade') { <svg class="ax-svg" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="axfade" x1="0" y1="0" x2="1" y2="0"><stop offset="0.5" stop-color="currentColor" stop-opacity="0.9"/><stop offset="1" stop-color="currentColor" stop-opacity="0.2"/></linearGradient></defs><path d="M12 2.5C8.5 7 5.5 10.2 5.5 14a6.5 6.5 0 0 0 13 0c0-3.8-3-7-6.5-11.5z" fill="url(#axfade)" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> }
+                    @default {
+                      @if (t.icon.startsWith('pi-')) { <i class="pi {{ t.icon }}" aria-hidden="true"></i> } @else { <span class="ax-glyph" aria-hidden="true">{{ t.icon }}</span> }
+                    }
+                  }
+                  @if (t.badge) { <span class="ax-new" aria-label="New">NEW</span> }
+                  <span class="ax-label">{{ t.label }}</span>
+                  @if (t.level) {
+                    <span class="ax-lvl" aria-hidden="true"><i [class.f]="t.level() >= 1"></i><i [class.f]="t.level() >= 2"></i></span>
+                  }
+                </button>
+              }
+            </div>
+          }
+        </section>
+      }
+    </div>
+
+    <footer class="ax-foot">
+      <button type="button" class="ax-reset" (click)="resetA11y()"><i class="pi pi-refresh" aria-hidden="true"></i> Reset</button>
+    </footer>
+  </aside>
+}
+
+@if (!a11yOpen()) {
+  <button type="button" class="ax-fab" [class.on]="a11y.anyActive" (click)="openA11y($event)" aria-label="Open accessibility options (Ctrl+F2)" aria-keyshortcuts="Control+F2" aria-haspopup="dialog" aria-controls="a11y-drawer">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.6"/><path d="M4.5 8.5l7.5 1.5 7.5-1.5M12 10v5m0 0l-3 5.5M12 15l3 5.5"/></svg>
+    <span class="ax-fab-key" aria-hidden="true">Ctrl+F2</span>
+    <span class="ax-fab-tip">Accessibility (Ctrl+F2)</span>
+  </button>
+}
+
+@if (a11y.spot(); as sp) { <div class="focus-spot" aria-hidden="true" [style.left.px]="sp.x" [style.top.px]="sp.y" [style.width.px]="sp.w" [style.height.px]="sp.h"></div> }
+@if (a11y.magnified(); as m) { <div class="magnifier" aria-hidden="true" [style.--x.px]="m.x" [style.top.px]="m.y">{{ m.text }}</div> }

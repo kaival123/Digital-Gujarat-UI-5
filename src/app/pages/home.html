@@ -1,0 +1,445 @@
+  <!-- Hero: Digital Gujarat — holographic 3D state map -->
+  <section class="dg-hero" aria-labelledby="dg-hero-title">
+    <span class="dg-aurora" aria-hidden="true"></span>
+    <span class="dg-grid" aria-hidden="true"></span>
+    <div class="container dg-hero-grid">
+      <div class="dg-copy">
+        <div class="hero-lockup"><span class="seal"><img src="assets/img/logo/emblem-of-india.png" alt="" width="30" height="36"></span><span class="who"><b>Government of Gujarat</b><small>Official citizen services portal</small></span></div>
+        <h1 id="dg-hero-title" class="dg-wordmark" aria-label="Digital Gujarat">
+          <span class="wm-digital" aria-hidden="true"><i class="wm-bit"></i>DIGITAL</span>
+          <span class="wm-gujarat" aria-hidden="true">GUJARAT</span>
+          <span class="wm-trace" aria-hidden="true"><i></i><i></i><i></i></span>
+        </h1>
+        <p class="dg-tagline" aria-label="Connecting Gujarat. Empowering Citizens. Transforming Governance.">
+          <span [appWords]="'Connecting Gujarat.'" [wordDelay]="900"></span>
+          <span [appWords]="'Empowering Citizens.'" [wordDelay]="1500"></span>
+          <span [appWords]="'Transforming Governance.'" [wordDelay]="2100"></span>
+        </p>
+        <p class="lead">One secure platform for smart governance — access, apply for and track citizen, Sugam, Digital SevaSetu and Janseva services from anywhere in Gujarat.</p>
+        <div class="hero-cta">
+          <a pButton size="large" href="#services" (click)="scrollTo($event)">Explore services <i class="pi pi-arrow-right"></i></a>
+          <a pButton size="large" variant="outlined" routerLink="/videos"><i class="pi pi-play-circle"></i> How it works</a>
+        </div>
+        <dl class="hero-facts">
+          @for (f of facts; track f.label) {
+            <div><dt>{{ f.value }}</dt><dd>{{ f.label }}</dd></div>
+          }
+        </dl>
+      </div>
+
+      <div class="dg-stage">
+        @defer (on idle) {
+          <app-gujarat-map />
+        } @placeholder {
+          <div class="gm-ph" aria-hidden="true"><i></i></div>
+        }
+        <p class="dg-stage-note"><i class="pi pi-wifi" aria-hidden="true"></i> Illustrative view of the connected state network</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Find band: lead + search on the left, category tiles on the right -->
+  <section class="quick" aria-label="Find a service">
+    <div class="container">
+      <div class="fx">
+        <div class="fx-top">
+          <div class="fx-title">
+            <p class="fx-kicker">Start here</p>
+            <h2>What do you need <em>today?</em></h2>
+          </div>
+          <div class="trend-chips fx-trend">
+            <span class="label"><i class="pi pi-bolt"></i> Trending</span>
+            @for (t of searchSvc.trending.slice(0, 4); track t) {
+              <button type="button" (click)="openSearch(t)">{{ t }}</button>
+            }
+          </div>
+        </div>
+        <button type="button" class="quick-input fx-search" (click)="openSearch('')" aria-label="Search services">
+          <i class="pi pi-search"></i>
+          <span>Search 650+ services — income certificate, ration card, scholarship…</span>
+          <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+        <ul class="fx-tiles">
+          @for (q of quick; track q.label) {
+            <li><a [routerLink]="q.route" [attr.aria-label]="q.label">
+              <span class="fx-ic"><i [class]="q.icon"></i></span>
+              <span class="fx-tx"><b>{{ q.label }}</b><small>{{ q.sub }}</small></span>
+              <i class="pi pi-arrow-up-right fx-go"></i>
+            </a></li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest update ticker -->
+  <div class="ticker" role="region" aria-label="Latest updates">
+    <div class="container ticker-inner">
+      <a class="ticker-label" routerLink="/latest-update"><i class="pi pi-megaphone"></i> Latest</a>
+      <div class="ticker-track">
+        <div class="ticker-move">
+          @for (n of [0, 1]; track n) {
+            @for (t of ticker; track $index) { <span class="tick"><i class="pi pi-circle-fill"></i>{{ t }}</span> }
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What the name means -->
+  <section class="section dg-meaning" aria-labelledby="dg-meaning-title">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="The name, explained" severity="contrast" [rounded]="true" />
+          <h2 id="dg-meaning-title">Digital <span class="accent">+</span> Gujarat</h2>
+        </div>
+        <p class="head-note">Technology and identity, joined to deliver governance that is open, connected and close to every citizen.</p>
+      </div>
+      <div class="mp" appReveal="up">
+        <div class="mp-head">
+          <span class="mp-side"><span class="mp-ic"><i class="pi pi-microchip-ai"></i></span>DIGITAL</span>
+          <span class="mp-plus" aria-hidden="true">+</span>
+          <span class="mp-side gj"><span class="mp-ic"><i class="pi pi-map"></i></span>GUJARAT</span>
+        </div>
+        <ul class="mp-rows">
+          @for (m of meanDigital; track m.label; let i = $index) {
+            <li>
+              <div class="mp-cell"><i [class]="m.icon"></i><span><b>{{ m.label }}</b><small>{{ m.text }}</small></span></div>
+              <span class="mp-dot" aria-hidden="true"></span>
+              <div class="mp-cell gj"><i [class]="meanGujarat[i].icon"></i><span><b>{{ meanGujarat[i].label }}</b><small>{{ meanGujarat[i].text }}</small></span></div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service atlas: category rail + service list -->
+  <section id="services" class="section at" tabindex="-1" data-main>
+    <div class="container">
+      <div class="at-head" appReveal="up">
+        <div>
+          <p-tag value="Browse services" severity="contrast" [rounded]="true" />
+          <h2>Everything you need, <span class="accent">in one place</span></h2>
+          <p>Pick a category, or press <kbd>Ctrl&nbsp;K</kbd> to search all {{ stats[0].value }}+ services.</p>
+        </div>
+        <a pButton routerLink="/services/citizen">View all services <i class="pi pi-arrow-right"></i></a>
+      </div>
+      <div class="at-tabs" role="tablist" aria-label="Service categories" appReveal="up">
+        @for (c of explorer; track c.key) {
+          <button type="button" role="tab" [class.on]="cat() === c.key" [attr.aria-selected]="cat() === c.key" (click)="cat.set(c.key)">
+            <i [class]="c.icon"></i><span>{{ c.label }}</span><em>{{ c.total }}</em>
+          </button>
+        }
+      </div>
+      <div class="at-panel" role="tabpanel" appReveal="up">
+        <div class="at-bar">
+          <p><i [class]="catData().icon"></i> {{ catData().blurb }}</p>
+          <a class="more" [routerLink]="catData().route">See all {{ catData().total }} <i class="pi pi-arrow-right"></i></a>
+        </div>
+        <ul class="at-list">
+          @for (s of catData().items; track s.title; let i = $index) {
+            <li>
+              <a [routerLink]="['/service', catData().key, i]">
+                <img decoding="async" loading="lazy" [src]="s.img" alt="">
+                <span class="at-t">{{ s.title }}</span>
+                <i class="pi pi-arrow-up-right"></i>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Figures: statement + 2×2 numbers -->
+  <section class="section fg" aria-label="Digital Gujarat in numbers">
+    <div class="container">
+      <div class="fg-panel" appReveal="up">
+        <div class="fg-copy">
+          <p-tag value="In numbers" severity="contrast" [rounded]="true" />
+          <h2>Gujarat's digital front door, <span class="accent">by the numbers</span></h2>
+          <p>One sign-in for citizen, Sugam, Digital SevaSetu and Janseva services — used by people across the state every day.</p>
+        </div>
+        <div class="fg-row">
+          @for (st of stats; track st.label; let i = $index) {
+            <div class="fg-stat" [appReveal]="'up'" [revealDelay]="i * 90">
+              <span class="fg-ic"><i [class]="st.icon"></i></span>
+              <strong><span [appCounter]="st.value">0</span>{{ st.suffix }}</strong>
+              <span class="fg-lb">{{ st.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Announcements & notifications -->
+  <section class="section dg-news" aria-labelledby="dg-news-title">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="Announcements" severity="contrast" [rounded]="true" />
+          <h2 id="dg-news-title">Latest <span class="accent">updates &amp; notices</span></h2>
+        </div>
+        <a pButton variant="outlined" routerLink="/latest-update">All updates <i class="pi pi-arrow-right"></i></a>
+      </div>
+      <ul class="news-grid">
+        @for (n of news; track n.text; let i = $index) {
+          <li [appReveal]="'up'" [revealDelay]="i * 90">
+            <a routerLink="/latest-update" class="news-card">
+              <span class="news-ic"><i [class]="n.icon"></i></span>
+              <span class="news-body"><small>{{ n.tag }}</small><b>{{ n.text }}</b></span>
+              <i class="pi pi-arrow-up-right news-go" aria-hidden="true"></i>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Catalogue analytics -->
+  <section class="section dg-analytics" aria-labelledby="dg-an-title">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="Service catalogue" severity="contrast" [rounded]="true" />
+          <h2 id="dg-an-title">Where the services <span class="accent">live</span></h2>
+        </div>
+        <p class="head-note">Number of online services in each channel. Select a bar to open its list.</p>
+      </div>
+      <div class="an-grid">
+        <article class="panel" appReveal="left">
+          <header><h2>Services by channel</h2><p>Total: {{ stats[0].value }} online services</p></header>
+          <ul class="bars an-bars">
+            @for (c of explorer; track c.key; let i = $index) {
+              <li>
+                <span class="b-rank"><i [class]="c.icon"></i></span>
+                <a class="b-body" [routerLink]="c.route" [attr.aria-label]="c.label + ': ' + c.total + ' services'">
+                  <span class="b-label">{{ c.label }}</span>
+                  <span class="b-track"><i [style.width.%]="(c.total / maxTotal) * 100" [style.transition-delay.ms]="i * 120"></i></span>
+                </a>
+                <b>{{ c.total }}</b>
+              </li>
+            }
+          </ul>
+        </article>
+        <article class="panel an-share" appReveal="right">
+          <header><h2>Share of catalogue</h2><p>Each channel as a part of the whole</p></header>
+          <div class="share-bar" role="img" [attr.aria-label]="'Share of services: ' + shareLabel">
+            @for (c of explorer; track c.key; let i = $index) { <span [style.flex-grow]="c.total" [attr.data-i]="i" [title]="c.label + ' – ' + c.total"></span> }
+          </div>
+          <ul class="share-legend">
+            @for (c of explorer; track c.key; let i = $index) { <li><i [attr.data-i]="i"></i>{{ c.label }} <b>{{ ((c.total / stats[0].value) * 100).toFixed(0) }}%</b></li> }
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending: intro column + carousel -->
+  <section class="section alt trend-sec">
+    <div class="container trend-split">
+      <div class="trend-intro" appReveal="left">
+        <p-tag value="Trending Services" severity="contrast" [rounded]="true" />
+        <h2>Top <span class="accent">Digital Gujarat</span> Services</h2>
+        <p>The most requested services this month — apply in a few minutes.</p>
+        <a pButton variant="outlined" routerLink="/services/citizen">All citizen services <i class="pi pi-arrow-right"></i></a>
+      </div>
+      <div class="trend-rail" appReveal="right">
+        <p-carousel [value]="trending" [numVisible]="2" [numScroll]="1" [circular]="false" [responsiveOptions]="[
+            { breakpoint: '1200px', numVisible: 2, numScroll: 1 },
+            { breakpoint: '700px', numVisible: 1, numScroll: 1 } ]">
+          <ng-template #item let-t>
+            <a class="trend-card" routerLink="/services/citizen" [queryParams]="{ q: t.title }">
+              <span class="rank">{{ t.rank }}</span>
+              <span class="hot"><i class="pi pi-bolt"></i> Hot</span>
+              <span class="tc-icon"><img decoding="async" [src]="t.img" alt=""></span>
+              <h3>{{ t.title }}</h3>
+              <span class="more">Apply now <i class="pi pi-arrow-right"></i></span>
+            </a>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works: sticky heading + stacked steps -->
+  <section class="section steps-sec">
+    <div class="container steps-split">
+      <div class="steps-intro" appReveal="left">
+        <p-tag value="How it works" severity="contrast" [rounded]="true" />
+        <h2>Get a service in <span class="accent">four steps</span></h2>
+        <p>No office visit, no paperwork queue — everything from your phone or laptop.</p>
+        <div class="hero-actions">
+          <a pButton routerLink="/faq"><i class="pi pi-question-circle"></i> Read the FAQ</a>
+          <a pButton [outlined]="true" routerLink="/videos"><i class="pi pi-video"></i> Watch tutorials</a>
+        </div>
+      </div>
+      <ol class="steps">
+        @for (st of steps; track st.title; let i = $index) {
+          <li [appReveal]="'up'" [revealDelay]="i * 110">
+            <span class="step-no">0{{ i + 1 }}</span>
+            <div class="step-body"><h3>{{ st.title }}</h3><p>{{ st.text }}</p></div>
+            <span class="step-icon"><i [class]="st.icon"></i></span>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Sugam promo: the standee breaks out of the panel -->
+  <section class="promo">
+    <div class="container promo-inner">
+      <div class="promo-media" appReveal="left">
+        <p-image src="assets/img/standeebuspanel/standeedesign.jpeg" alt="Sugam Digital Gujarat – Line thi Online" [preview]="true" appendTo="body" imageClass="standee" />
+      </div>
+      <div class="promo-copy" appReveal="right">
+        <p-tag value="Sugam Digital Gujarat" severity="warn" [rounded]="true" />
+        <h2>Income certificate? <span class="accent">Now at your fingertips.</span></h2>
+        <p>Skip the trip to the office. Get your certificates online from the comfort of your home.</p>
+        <ul class="perks">
+          @for (p of perks; track p.text; let i = $index) {
+            <li [appReveal]="'right'" [revealDelay]="150 + i * 110"><span class="perk-icon"><i [class]="p.icon"></i></span>{{ p.text }}</li>
+          }
+        </ul>
+        <div class="hero-actions">
+          <a pButton routerLink="/sugam-digital-gujarat">Visit Sugam Digital Gujarat <i class="pi pi-arrow-right"></i></a>
+          <a pButton [outlined]="true" class="on-dark" routerLink="/user-manual"><i class="pi pi-book"></i> User manual</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: accordion + help card -->
+  <section class="section alt faq-sec">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="FAQ" severity="contrast" [rounded]="true" />
+          <h2>Questions? <span class="accent">We have answers.</span></h2>
+        </div>
+        <a pButton variant="outlined" routerLink="/faq">All questions <i class="pi pi-arrow-right"></i></a>
+      </div>
+      <div class="faq-split">
+        <p-accordion [value]="0" appReveal="left">
+          @for (f of faqs; track $index) {
+            <p-accordion-panel [value]="$index">
+              <p-accordion-header>{{ f.q }}</p-accordion-header>
+              <p-accordion-content><p>{{ f.a[0] }}</p></p-accordion-content>
+            </p-accordion-panel>
+          }
+        </p-accordion>
+        <aside class="help-card" appReveal="right">
+          <span class="hc-ic"><i class="pi pi-headphones"></i></span>
+          <h3>Still need help?</h3>
+          <p>Our helpdesk is available 10 AM – 6 PM, seven days a week.</p>
+          <a pButton routerLink="/help-desk">Talk to helpdesk <i class="pi pi-arrow-right"></i></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Glimpses -->
+  <section class="section">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="Glimpses" severity="contrast" [rounded]="true" />
+          <h2>Glimpses of <span class="accent">Gujarat</span></h2>
+        </div>
+        <p class="head-note">Four moments that define the state — tap a card or use the arrows.</p>
+      </div>
+      <div appReveal="zoom">
+        <app-glimpse-slider [items]="glimpses" [paused]="!!viewer()" [autoplay]="!a11y.motionOff()" (view)="openViewer($event)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Important links: two opposing marquee rows -->
+  <section class="section alt links-sec">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="Partners" severity="contrast" [rounded]="true" />
+          <h2>Important <span class="accent">Links</span></h2>
+        </div>
+        <p class="head-note">Government portals and initiatives we work with.</p>
+      </div>
+    </div>
+    <div class="partners-marquee">
+      <div class="partners-track">
+        @for (copy of [0, 1]; track copy) {
+          @for (p of partners; track $index) {
+            <a [href]="p.url" target="_blank" rel="noopener" [attr.aria-label]="p.name" [attr.aria-hidden]="copy === 1 ? true : null" [attr.tabindex]="copy === 1 ? -1 : null" [pTooltip]="p.name" tooltipPosition="top">
+              <img decoding="async" [src]="p.img" [alt]="copy === 1 ? '' : p.name" loading="lazy">
+            </a>
+          }
+        }
+      </div>
+    </div>
+    <div class="partners-marquee rev" aria-hidden="true">
+      <div class="partners-track">
+        @for (copy of [0, 1]; track copy) {
+          @for (p of partnersRev; track $index) {
+            <a [href]="p.url" target="_blank" rel="noopener" tabindex="-1"><img decoding="async" [src]="p.img" alt="" loading="lazy"></a>
+          }
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Holidays: today tile + full-width calendar -->
+  <section class="section hol-sec">
+    <div class="container">
+      <div class="head-row" appReveal="up">
+        <div>
+          <p-tag value="Calendar" severity="contrast" [rounded]="true" />
+          <h2>Government <span class="accent">Holidays</span></h2>
+        </div>
+        <p class="head-note">Holidays are as per the orders issued by the State Government.</p>
+      </div>
+      <div class="hol-grid">
+        <aside class="hol-today" appReveal="left" aria-label="Today">
+          <p class="ht-label">Today</p>
+          <p class="ht-day">{{ today.day }}</p>
+          <p class="ht-week">{{ today.weekday }}</p>
+          <p class="ht-month">{{ today.month }}</p>
+          <div class="legend">
+            <span><i class="dot public"></i> Public Holiday</span>
+            <span><i class="dot weekly"></i> Weekly Off</span>
+          </div>
+          <a pButton [href]="site + 'Download/GovernmentHolidays.pdf'" target="_blank" rel="noopener"><i class="pi pi-download"></i> Holiday list (PDF)</a>
+        </aside>
+        <div class="hol-cal" appReveal="right"><p-datepicker [(ngModel)]="calendarDate" [inline]="true" [showWeek]="false" styleClass="holiday-cal" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing call to action: centred statement -->
+  <section class="cta-band">
+    <div class="container cta-inner" appReveal="zoom">
+      <p class="cta-kicker">Get started</p>
+      <h2>Ready to skip the queue?</h2>
+      <p>Register once and apply for certificates, schemes and scholarships from home.</p>
+      <div class="cta-actions">
+        <a pButton size="large" [href]="site + 'HomePage.aspx'" target="_blank" rel="noopener"><i class="pi pi-user-plus"></i> Register / Login</a>
+        <button pButton size="large" type="button" class="on-dark" variant="outlined" (click)="openSearch('')"><i class="pi pi-search"></i> Find a service</button>
+      </div>
+    </div>
+  </section>
+
+@if (viewer(); as v) {
+  <div class="lightbox" (click)="closeViewer()" (document:keydown.escape)="closeViewer()" role="dialog" aria-modal="true" [attr.aria-label]="v.title">
+    <div class="lightbox-tools" (click)="$event.stopPropagation()">
+      <button type="button" aria-label="Rotate right" (click)="rotateBy(90)"><i class="pi pi-refresh"></i></button>
+      <button type="button" aria-label="Rotate left" (click)="rotateBy(-90)"><i class="pi pi-undo"></i></button>
+      <button type="button" aria-label="Zoom out" (click)="zoomBy(-0.25)"><i class="pi pi-search-minus"></i></button>
+      <button type="button" aria-label="Zoom in" (click)="zoomBy(0.25)"><i class="pi pi-search-plus"></i></button>
+      <button type="button" aria-label="Close" (click)="closeViewer()"><i class="pi pi-times"></i></button>
+    </div>
+    <img [src]="v.img" [alt]="v.title" [style.transform]="'rotate(' + rot() + 'deg) scale(' + zoom() + ')'" (click)="$event.stopPropagation()" />
+  </div>
+}

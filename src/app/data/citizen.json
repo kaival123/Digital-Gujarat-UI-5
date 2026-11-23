@@ -1,0 +1,62 @@
+[
+ {
+  "title": "Income and Assets Certificate of Economically Weaker Sections from Central Government",
+  "img": "images/citizen/Income.png"
+ },
+ {
+  "title": "COVID-19 Lockdown Exemption Pass for Movement out of Gujarat",
+  "img": "images/citizen/MovementPassCOVID.png"
+ },
+ {
+  "title": "Curfew Pass in COVID-19 Lockdown",
+  "img": "images/citizen/CurfewPassCOVID.png"
+ },
+ {
+  "title": "Pass for coming to Gujarat from other state",
+  "img": "images/citizen/pass.png"
+ },
+ {
+  "title": "Registration for issuance of Ex-Servicemen Identity Card",
+  "img": "images/citizen/RegEx-Ser_ID.png"
+ },
+ {
+  "title": "Online Registration for Organizing Marriage Function",
+  "img": "images/citizen/RegOrMarriage.png"
+ },
+ {
+  "title": "Scheduled Tribe Validity Certificate",
+  "img": "images/citizen/ReligiousMinority.png"
+ },
+ {
+  "title": "Gujarat State Electric Vehicle Subsidy Scheme",
+  "img": "images/citizen/GSEVSS.png"
+ },
+ {
+  "title": "Certificate for the amount deposited",
+  "img": "images/citizen/amount_deposite.png"
+ },
+ {
+  "title": "Farmer Certificate",
+  "img": "images/citizen/Farmer.png"
+ },
+ {
+  "title": "Application for Varsai Certificate",
+  "img": "images/citizen/AppVarsaiCer.png"
+ },
+ {
+  "title": "Domicile Certificate (By Birth)",
+  "img": "images/citizen/Domicile.png"
+ },
+ {
+  "title": "Senior Citizen Certificate",
+  "img": "images/citizen/SeniorCitizen.png"
+ },
+ {
+  "title": "Character Certificate",
+  "img": "images/citizen/Character.png"
+ },
+ {
+  "title": "Widow Certificate",
+  "img": "images/citizen/Widow.png"
+ }
+]

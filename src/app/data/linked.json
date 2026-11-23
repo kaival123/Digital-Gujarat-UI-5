@@ -1,0 +1,170 @@
+{
+ "departments": [
+  "",
+  "14",
+  "21",
+  "28",
+  "4",
+  "7",
+  "AMDAVAD MUNICIPAL CORPORATION",
+  "BHAVNAGAR MUNICIPAL CORPORATION"
+ ],
+ "rows": [
+  {
+   "name": "CCRS - Comrehansive Complaint Redressel System",
+   "desc": "It can be accessed through mentioned URL of AMC web site and fill the required details to Register a complaint and can view complaint status. It is an open service for citizens and password is not required.",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "http://www.amccrs.com"
+  },
+  {
+   "name": "Donation",
+   "desc": "It can be accessed through mentioned URL of AMC web site. One can donate volunarily for anumber of causes. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/Donation/Donation"
+  },
+  {
+   "name": "Hall Availability Checking and Booking",
+   "desc": "It can be accessed through mentioned URL of AMC web site. Availability for different categories of AMC Halls can be checked as well as booking and payment can beavailed. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://amcmodules.ahmedabadcity.gov.in/HALLBOOKING/HALL_AVAILABILITY_WEB.aspx"
+  },
+  {
+   "name": "Kankaria Lake, Sabarmati River Front Ticket",
+   "desc": "It can be accessed through mentioned URL of AMC web site. Online ticket can bebooked. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/StaticPage/Event"
+  },
+  {
+   "name": "Online Hayati for Pensioners",
+   "desc": "It can be accessed through mentioned URL of AMC web site. This is an online eKYC service for AMC Pensioners.",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://amcmodules.ahmedabadcity.gov.in/HAYATI/HAYATI/HomePage.aspx"
+  },
+  {
+   "name": "OnlineApplication for Property Tax",
+   "desc": "It can be accessed through mentioned URL of AMC web site. The applicant can apply for diffrent kind services, changes for property tax. It is an open service for citizens and password is not required.",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://amcmodules.ahmedabadcity.gov.in/AMCWEBMODULE/COMPLAINTS/New_PTAX_COMPLAINT.aspx"
+  },
+  {
+   "name": "Pet Dog Registration",
+   "desc": "It can be accessed through mentioned URL of AMC web site. Owner of the Pets can be registered through this link. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/ImpLinksMenu/Index?tax=Dog"
+  },
+  {
+   "name": "Professional Tax",
+   "desc": "It can be accessed through mentioned URL of AMC web site. Payment for both PEC and PRC can bedone. And Form 5 entry is also available. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/PFSNL/DuesSearch"
+  },
+  {
+   "name": "Property Tax Payment",
+   "desc": "It can be accessed through mentioned URL of AMC web site with Tenament No of the Property, followed by selecting payment option. The link also showthedues and paid details. It is an open service for citizens and password is not required.",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/PTAX/DuesSearch"
+  },
+  {
+   "name": "Search and issuance of Birth & Death registration Certificate",
+   "desc": "It can be accessed through mentioned URL of AMC web site. One can search with required details and download the certificate. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/OnlineSerWithoutLogin/RegistrationSearch"
+  },
+  {
+   "name": "Self Assessment of Property Tax",
+   "desc": "It can be accessed through mentioned URL of AMC web site. One can get an estmation of his/her property tax by filling the required details of the property. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://amcmodules.ahmedabadcity.gov.in/SELFASSESSMENT/propertySelftAssessment/PT_Login"
+  },
+  {
+   "name": "TDO Fees",
+   "desc": "It can be accessed through mentioned URL of AMC web site. Payment for different TDO services can be paid. It is an open service for citizens and password is not required.",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://ahmedabadcity.gov.in/ImpLinksMenu/Index?tax=TDO"
+  },
+  {
+   "name": "Veer Savarkar Sports Complex Registration",
+   "desc": "It can be accessed through mentioned URL of AMC web site. Online registration with Back Office cheking and approval. It is an open service for citizens",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://amcmodules.ahmedabadcity.gov.in/AMCCCC_ONLINE/WEB_LOGIN.aspx"
+  },
+  {
+   "name": "Vehicle Tax (Dealer Module)",
+   "desc": "It can be accessed through mentioned URL of AMC web site. This moduleis for dealers to register and payment of VehilceTax. It is a password based service for dealers only.",
+   "dept": "AMDAVAD MUNICIPAL CORPORATION",
+   "url": "https://amcmodules.ahmedabadcity.gov.in/VEHICLE/login.aspx"
+  },
+  {
+   "name": "Birth/Death Certificate (Before 2020)Print Certificate",
+   "desc": "Print online birth/death certificate in English/Gujarati.",
+   "dept": "BHAVNAGAR MUNICIPAL CORPORATION",
+   "url": "http://117.239.208.74:99/makepayment.aspx"
+  },
+  {
+   "name": "Complaint Redressal & Monitoring System (CRMS)",
+   "desc": "Citizen login for online complain registration and status",
+   "dept": "BHAVNAGAR MUNICIPAL CORPORATION",
+   "url": "https://crms.bmcgujarat.com:8020/"
+  },
+  {
+   "name": "Mariage Registration-Online Payment & Print Chalan",
+   "desc": "Online payment of fees for marriage registration certificate",
+   "dept": "BHAVNAGAR MUNICIPAL CORPORATION",
+   "url": "https://marriagereg.bmcgujarat.com:9090/common/print-challan.aspx"
+  },
+  {
+   "name": "Mariage Registration-Online Registration",
+   "desc": "New registration of marriage certificate",
+   "dept": "BHAVNAGAR MUNICIPAL CORPORATION",
+   "url": "https://marriagereg.bmcgujarat.com:9090/common/marrigereg.aspx"
+  },
+  {
+   "name": "Mariage Registration-Re-print Certificate",
+   "desc": "Print marriage registration certificate",
+   "dept": "BHAVNAGAR MUNICIPAL CORPORATION",
+   "url": "https://marriagereg.bmcgujarat.com:9090/common/qrcertificate.aspx"
+  },
+  {
+   "name": "Mariage Registration-Re-print online payment receipt & Pre filled form",
+   "desc": "Reprint of online payment receipt and application form",
+   "dept": "BHAVNAGAR MUNICIPAL CORPORATION",
+   "url": "https://marriagereg.bmcgujarat.com:9090/common/onlinepay-recipt.aspx"
+  },
+  {
+   "name": "2",
+   "desc": "3",
+   "dept": "4",
+   "url": "javascript:__doPostBack(&#39;ctl00$MainContent$grvNeSDA&#39;,&#39;Page$2&#39;)"
+  },
+  {
+   "name": "",
+   "desc": "",
+   "dept": "",
+   "url": ""
+  },
+  {
+   "name": "5",
+   "desc": "6",
+   "dept": "7",
+   "url": ""
+  },
+  {
+   "name": "12",
+   "desc": "13",
+   "dept": "14",
+   "url": ""
+  },
+  {
+   "name": "19",
+   "desc": "20",
+   "dept": "21",
+   "url": ""
+  },
+  {
+   "name": "26",
+   "desc": "27",
+   "dept": "28",
+   "url": ""
+  }
+ ]
+}

@@ -1,0 +1,190 @@
+/* ---- UX4G-style options drawer ---- */
+/* the panel follows the site colour theme (set by the theme picker on :root as --brand) */
+:root {
+  --ux: var(--brand);
+  --ux-soft: color-mix(in srgb, var(--brand) 12%, #fff);
+  --ux-line: color-mix(in srgb, var(--brand) 35%, #fff);
+  --ux-ink: color-mix(in srgb, var(--brand) 45%, #000);
+}
+.ax-backdrop { position: fixed; inset: 0; z-index: 3400; background: rgba(15, 20, 40, 0.28); animation: axFade 0.2s ease-out; }
+.ax-drawer {
+  font-size: 16px; letter-spacing: normal; word-spacing: normal;
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 3500; width: min(420px, 100vw); display: flex; flex-direction: column;
+  background: var(--dg-card); color: var(--dg-text); box-shadow: -18px 0 50px rgba(15, 20, 40, 0.28); animation: axSlide 0.3s var(--ease-out);
+  .ax-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--ux); color: #fff; flex: none;
+    h2 { margin: 0; font: 600 1.05em var(--font-display); color: #fff; } }
+  .ax-close { width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; &:hover { background: rgba(255, 255, 255, 0.2); } }
+  .ax-body { flex: 1; min-height: 0; overflow-y: auto; padding: 14px 14px 20px; display: grid; grid-auto-rows: max-content; gap: 14px; align-content: start; overscroll-behavior: contain; }
+  .ax-viewrow { display: flex; align-items: center; justify-content: space-between; font-weight: 600; }
+  .ax-seg { display: inline-flex; gap: 4px; padding: 3px; border: 1px solid var(--dg-border); border-radius: 10px;
+    button { width: 40px; height: 36px; border: 0; border-radius: 8px; background: transparent; color: var(--dg-text); cursor: pointer; &.on { background: var(--ux-soft); color: var(--ux); box-shadow: inset 0 0 0 1px var(--ux); } } }
+  .ax-net { margin: 0; padding: 8px 10px; border-radius: 10px; background: var(--dg-alt); font-size: 0.8em; color: var(--dg-muted); i { color: var(--ux); margin-right: 4px; } }
+
+  .ax-profile { border: 1.5px solid var(--ux); border-radius: 14px; background: var(--dg-alt); overflow: hidden; }
+  .ax-profile-head { width: 100%; display: flex; align-items: center; gap: 14px; padding: 12px; border: 0; background: transparent; color: inherit; cursor: pointer; text-align: left; font: inherit;
+    b { flex: 1; text-align: center; font-size: 0.95em; } }
+  .ax-pico { width: 40px; height: 40px; border-radius: 10px; background: var(--ux); color: #fff; display: grid; place-items: center; flex: none; }
+  .ax-profiles { list-style: none; margin: 0; padding: 0 10px 10px; display: grid; gap: 6px;
+    button { width: 100%; text-align: left; padding: 10px 12px; border: 1px solid var(--dg-border); border-radius: 10px; background: var(--dg-card); cursor: pointer; display: grid; gap: 2px; color: inherit; font: inherit;
+      b { font-size: 0.9em; } small { color: var(--dg-muted); font-size: 0.76em; } &:hover { border-color: var(--ux); background: var(--ux-soft); } } }
+
+  .ax-sec { background: var(--dg-alt); border-radius: 16px; padding: 4px 14px 14px; }
+  .ax-sec-head { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 4px; border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; b { font-size: 0.95em; font-weight: 600; } }
+  .ax-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .ax-tile {
+    position: relative; display: grid; justify-items: center; align-content: center; gap: 10px; min-height: 100px; padding: 12px 6px; border: 1.5px solid transparent; border-radius: 14px; background: var(--dg-card);
+    color: var(--dg-text); cursor: pointer; font: inherit; text-align: center; transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    .pi { font-size: 1.35em; }
+    .ax-glyph { font: 600 1.25em/1 var(--font-display); height: 1.35em; display: grid; place-items: center; }
+    .ax-label { font-size: 0.82em; font-weight: 500; line-height: 1.25; }
+    .ax-lvl { position: absolute; top: 8px; right: 8px; display: flex; gap: 3px; i { width: 6px; height: 6px; border-radius: 50%; background: var(--dg-border); &.f { background: var(--ux); } } }
+    &:hover { border-color: var(--ux-line); transform: translateY(-1px); }
+    &.on { border-color: var(--ux); background: var(--ux-soft); color: var(--ux); &::after { content: '\2713'; position: absolute; top: 6px; left: 8px; font-size: 0.75em; font-weight: 700; color: var(--ux); } }
+    &:focus-visible { outline: 3px solid var(--ux); outline-offset: 2px; }
+  }
+  &.list .ax-tiles { grid-template-columns: 1fr; gap: 8px; }
+  &.list .ax-tile { grid-auto-flow: column; justify-content: start; justify-items: start; min-height: 0; padding: 12px 14px; gap: 14px;
+    .pi, .ax-glyph { width: 28px; text-align: center; justify-self: center; } .ax-label { text-align: left; font-size: 0.9em; }
+    .ax-lvl { top: 50%; right: 14px; transform: translateY(-50%); }
+    &.on::after { left: auto; right: 14px; top: 50%; transform: translateY(-50%); } }
+
+  .ax-foot { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--dg-border); background: var(--dg-card); }
+  .ax-reset { flex: 1; max-width: 240px; height: 44px; border: 0; border-radius: 10px; background: color-mix(in srgb, var(--ux) 20%, #fff); color: var(--ux-ink); font: 600 0.95em var(--font-display); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; &:hover { background: color-mix(in srgb, var(--ux) 32%, #fff); } }
+  .ax-foot a { color: var(--ux); font-weight: 600; text-decoration: underline; }
+}
+@keyframes axSlide { from { transform: translateX(100%); } }
+@keyframes axFade { from { opacity: 0; } }
+@media (max-width: 420px) { .ax-drawer .ax-tiles { gap: 8px; } .ax-drawer .ax-tile { min-height: 92px; .ax-label { font-size: 0.76rem; } } }
+
+/* ---- reading guide ---- */
+.reading-guide { position: fixed; left: 0; right: 0; height: 44px; margin-top: -22px; z-index: 3300; pointer-events: none; background: rgba(255, 224, 80, 0.18); border-top: 3px solid #f5b800; border-bottom: 3px solid #f5b800; }
+
+/* ---- Text spacing / line height (levels 1 and 2) ---- */
+html.a11y-sp-1 body *:not(.pi):not(.ax-drawer *) { letter-spacing: 0.04em; word-spacing: 0.12em; }
+html.a11y-sp-2 body *:not(.pi):not(.ax-drawer *) { letter-spacing: 0.09em; word-spacing: 0.25em; }
+html.a11y-lh-1 body, html.a11y-lh-1 p, html.a11y-lh-1 li, html.a11y-lh-1 dd, html.a11y-lh-1 label { line-height: 1.9 !important; }
+html.a11y-lh-2 body, html.a11y-lh-2 p, html.a11y-lh-2 li, html.a11y-lh-2 dd, html.a11y-lh-2 label { line-height: 2.3 !important; }
+
+/* ---- Big cursor, hide images, invert keeps photos natural ---- */
+html.a11y-cur-1, html.a11y-cur-1 * { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24'><path d='M4 2l16 9-7 2 4 8-3 1-4-8-5 5z' fill='black' stroke='white' stroke-width='1.5'/></svg>") 4 2, auto !important; }
+html.a11y-cur-2, html.a11y-cur-2 * { cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 24 24'><path d='M4 2l16 9-7 2 4 8-3 1-4-8-5 5z' fill='black' stroke='white' stroke-width='1.5'/></svg>") 4 2, auto !important; }
+html.a11y-noimg img:not(.emblem):not(.logo), html.a11y-noimg .exp-bg, html.a11y-noimg .glimpse-img, html.a11y-noimg .thumb img { opacity: 0 !important; }
+html.a11y-invert img, html.a11y-invert video, html.a11y-invert .exp-bg { filter: invert(1) hue-rotate(180deg); }
+
+/* ---- floating accessibility button (right side, like the UX4G widget) ---- */
+.ax-fab {
+  position: fixed; right: 20px; bottom: 88px; z-index: 3200; width: 56px; height: 56px; border-radius: 50%; border: 3px solid #fff; background: var(--ux); color: #fff; cursor: pointer;
+  display: grid; place-items: center; box-shadow: 0 10px 28px rgba(var(--brand-rgb), 0.5); transition: transform 0.2s var(--ease-out), box-shadow 0.25s;
+  &:hover { transform: scale(1.08); box-shadow: 0 14px 34px rgba(var(--brand-rgb), 0.6); }
+  &:active { transform: scale(0.95); }
+  &:focus-visible { outline: 3px solid #ffbf00; outline-offset: 3px; }
+  &.on::after { content: ''; position: absolute; top: 0; right: 0; width: 14px; height: 14px; border-radius: 50%; background: #22c55e; border: 2px solid #fff; }
+  .ax-fab-tip { position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%) translateX(6px); padding: 6px 12px; border-radius: 8px; background: var(--dg-text); color: #fff; font: 600 0.8rem var(--font-display); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
+  &:hover .ax-fab-tip, &:focus-visible .ax-fab-tip { opacity: 1; transform: translateY(-50%); }
+}
+@media (max-width: 640px) { .ax-fab { right: 14px; bottom: 80px; width: 50px; height: 50px; .ax-fab-tip { display: none; } } }
+
+/* ---- Focus Mode: dim everything except the hovered block ---- */
+.focus-spot { position: fixed; z-index: 3100; pointer-events: none; border-radius: 12px; box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.62); outline: 3px solid #ffd400; transition: left 0.12s, top 0.12s, width 0.12s, height 0.12s; }
+
+/* ---- Text Magnify: enlarged text near the pointer ---- */
+.magnifier {
+  position: fixed; z-index: 3600; pointer-events: none; left: clamp(12px, calc(var(--x, 0px) - 180px), calc(100vw - 372px)); margin-top: 22px; max-width: min(360px, calc(100vw - 24px));
+  padding: 12px 16px; border-radius: 12px; background: #111; color: #fff; border: 2px solid #ffd400; font: 600 1.45rem/1.4 var(--font-body); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+/* ---- Dyslexia Friendly: readable font (see a11y.scss) plus comfortable rhythm ---- */
+html.a11y-dyslexia body { line-height: 1.85; word-spacing: 0.1em; }
+html.a11y-dyslexia p, html.a11y-dyslexia li { line-height: 1.85 !important; }
+
+/* ---- profile tiles (2 columns, icon + name) and vector icons ---- */
+.ax-drawer {
+  .ax-svg { width: 30px; height: 30px; }
+  .ax-profile { border: 0; padding: 4px 14px 14px; }
+  .ax-profile-head { padding: 10px 0; }
+  .ax-profiles { padding: 0; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    button { display: flex; align-items: center; gap: 12px; padding: 14px 12px; min-height: 64px; border: 1.5px solid transparent; border-radius: 14px; background: var(--dg-card); text-align: left;
+      > .pi, > .ax-glyph { flex: none; width: 24px; font-size: 1.15em; text-align: center; } .ax-glyph { font: 600 1em var(--font-display); }
+      b { font-size: 0.8em; font-weight: 500; line-height: 1.25; }
+      &:hover { border-color: var(--ux-line); background: var(--dg-card); }
+      &.on { border-color: var(--ux); background: var(--ux-soft); color: var(--ux); } } }
+}
+@media (max-width: 360px) { .ax-drawer .ax-profiles { grid-template-columns: 1fr; } }
+
+/* ---- floating button: larger circle with the shortcut label, as on the UX4G widget ---- */
+.ax-fab {
+  width: 78px; height: 78px; flex-direction: column; gap: 3px; align-content: center; display: flex; align-items: center; justify-content: center; padding: 0;
+  svg { width: 30px; height: 30px; flex: none; }
+  .ax-fab-key { font: 700 0.68rem/1 var(--font-body); letter-spacing: 0.01em; }
+  .ax-fab-tip { display: none; }
+}
+@media (max-width: 640px), (pointer: coarse) {
+  .ax-fab { width: 56px; height: 56px; .ax-fab-key { display: none; } svg { width: 28px; height: 28px; } }
+}
+
+/* ---- match the real widget's look: lighter type, outlined profile box, vector profile icons ---- */
+.ax-drawer {
+  font-family: 'Noto Sans', 'Segoe UI', Roboto, var(--font-body);
+  .ax-head h2 { font: 400 1.05em 'Noto Sans', 'Segoe UI', Roboto, var(--font-body); }
+  .ax-viewrow { font-weight: 400; }
+  .ax-profile { border: 1.2px solid var(--ux); border-radius: 14px; padding: 4px 14px 14px; }
+  .ax-profile-head b { font-weight: 600; font-size: 0.88em; }
+  .ax-profiles button { font-family: inherit; b { font-weight: 400; font-size: 0.82em; } .ax-psvg { width: 24px; height: 24px; flex: none; } }
+  .ax-sec-head b { font-weight: 600; font-size: 0.9em; }
+  .ax-label { font-weight: 400; }
+  .ax-foot { background: var(--dg-card); }
+}
+
+/* footer now holds only the Reset button: let it fill the row */
+.ax-drawer .ax-foot { justify-content: stretch; .ax-reset { max-width: none; } }
+
+/* ---- content tiles like the real widget: thin glyphs, NEW badge ---- */
+.ax-drawer {
+  .ax-tile .ax-glyph { font-family: 'Noto Sans', 'Segoe UI', Roboto, system-ui, sans-serif; font-weight: 400; font-size: 1.4em; letter-spacing: 0; }
+  .ax-tile .ax-new {
+    position: absolute; top: -7px; left: -7px; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: #2f9e44; color: #fff;
+    font: 700 6px/1 'Noto Sans', system-ui, sans-serif; letter-spacing: 0.02em; box-shadow: 0 0 0 2px var(--dg-alt), 0 2px 4px rgba(0, 0, 0, 0.25); pointer-events: none;
+  }
+}
+
+/* ---- High Contrast: keep the panel legible (accent is yellow there) ---- */
+html.a11y-contrast {
+  .ax-drawer { --ux: #000; --ux-soft: #fff3a8; --ux-line: #000; --ux-ink: #000; border-left: 3px solid #fff; }
+  .ax-drawer .ax-head { background: #000; border-bottom: 3px solid #ffd400; }
+  .ax-drawer .ax-tile, .ax-drawer .ax-profiles button, .ax-drawer .ax-seg { border: 2px solid #000; }
+  .ax-fab { --ux: #000; background: #000; color: #ffd400; border-color: #ffd400; box-shadow: 0 0 0 3px #000; }
+}
+
+/* ---- profile bar + carets exactly like the real widget ---- */
+.ax-drawer {
+  .ax-profile { border: 1.2px solid transparent; transition: border-color 0.2s; &.open { border-color: var(--ux); } }
+  .ax-profile-head { gap: 0; padding: 10px 0;
+    b { flex: 1; text-align: left; margin-left: 28px; font-weight: 600; font-size: 0.88em; } }
+  .ax-caret { width: 12px; height: 9px; flex: none; margin-right: 8px; background: currentColor; clip-path: polygon(0 0, 100% 0, 50% 100%); transition: transform 0.2s;
+    &.up { transform: rotate(180deg); } }
+  .ax-sec-head .ax-caret { margin-right: 4px; }
+}
+
+/* profile bar: equal top/bottom padding when collapsed; extra bottom space only when the tiles are shown */
+.ax-drawer .ax-profile { padding: 4px 14px; &.open { padding-bottom: 14px; } }
+
+/* ---- Grid / List switch like the real widget: solid grid, bold list lines, soft tinted active tile ---- */
+.ax-drawer .ax-seg { padding: 4px; gap: 4px; border: 1px solid var(--dg-border); border-radius: 12px; background: var(--dg-card);
+  button { width: 44px; height: 42px; border-radius: 9px; color: #111; display: grid; place-items: center; transition: background 0.2s, color 0.2s;
+    &.on { background: var(--ux-soft); color: var(--ux); box-shadow: inset 0 0 0 1px var(--ux-line); } } }
+
+/* ---- floating button: medium size ---- */
+.ax-fab { width: 64px; height: 64px; gap: 2px; right: 20px; bottom: 84px; border-width: 3px;
+  svg { width: 26px; height: 26px; }
+  .ax-fab-key { font-size: 0.62rem; } }
+@media (max-width: 640px), (pointer: coarse) { .ax-fab { width: 52px; height: 52px; right: 14px; bottom: 78px; svg { width: 26px; height: 26px; } } }
+
+/* ---- right-edge buttons share one vertical axis: accessibility button + scroll-to-top ---- */
+:root { --fab-axis: 46px; }
+.ax-fab { right: calc(var(--fab-axis) - 32px); }
+p-scrolltop button.p-button.p-scrolltop { width: 40px; height: 40px; inset-inline-end: calc(var(--fab-axis) - 20px); }
+@media (max-width: 640px), (pointer: coarse) {
+  :root { --fab-axis: 40px; }
+  .ax-fab { right: calc(var(--fab-axis) - 26px); }
+  p-scrolltop button.p-button.p-scrolltop { width: 38px; height: 38px; inset-inline-end: calc(var(--fab-axis) - 19px); }
+}
